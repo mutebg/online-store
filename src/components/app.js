@@ -4,6 +4,7 @@ import { Router } from 'preact-router';
 import Header from './header';
 import Home from '../routes/home';
 import Product from '../routes/product';
+import Basket from '../routes/basket';
 // import Home from 'async!../routes/home';
 // import Profile from 'async!../routes/profile';
 
@@ -24,6 +25,7 @@ export default class App extends Component {
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
 					<Product path="/product/:id" />
+					<Basket path="/basket" />
 				</Router>
 			</div>
 		);

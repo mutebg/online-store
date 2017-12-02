@@ -27,13 +27,16 @@ export default class Profile extends Component {
 
 	render({ id }, { product }) {
 		if (product) {
-			const { name, description, price, custom } = product;
+			const { name, description, price, custom, images } = product;
 			return (
 				<div style="margin-top: 100px">
+					<div>{images.map(img => <img src={img} />)}</div>
 					<h1>name: {name}</h1>
 					<p>description: {description}</p>
 					<p>price: {price}</p>
 					<CustomFields number={2} {...custom} />
+					<button>Buy</button>
+					<button>Add to basket</button>
 				</div>
 			);
 		}
