@@ -28,6 +28,21 @@ export const getProducts = () =>
 			return list;
 		});
 
+export const getProductProps = id =>
+	db
+		.collection('products/' + id + '/properties')
+		.get()
+		.then(snapshot => {
+			const list = [];
+			snapshot.forEach(doc => {
+				list.push({
+					id: doc.id,
+					...doc.data()
+				});
+			});
+			return list;
+		});
+
 export const getProduct = id =>
 	db
 		.collection('products')

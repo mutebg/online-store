@@ -1,31 +1,68 @@
 import { h, Component } from 'preact';
-import { getProduct } from '../../utils/db';
+import { getProduct, getProductProps } from '../../utils/db';
 
 const CustomFields = ({ number, label, length }) => {
 	const list = [];
-	console.log({ length });
 	for (let i = 1; i <= number; i++) {
 		list.push(
-			<div>
-				<label>{label + ' ' + i}</label>
-				<input type="text" maxLength={length} />
+			<div class="Custom__row">
+				<label class="Custom__label">{label + ' ' + i}</label>
+				<input
+					name={label + i}
+					class="Custom__field"
+					type="text"
+					maxLength={length}
+				/>
 			</div>
 		);
 	}
-	return <div>{list}</div>;
+	return <div class="Custom">{list}</div>;
 };
 
-export default class Profile extends Component {
-	state = {};
+const PropsForm = ({ data }) => (
+	<div class="Props">
+		{data.map(({ id, label, values }) => (
+			<div class="Props__row">
+				<lable id={id} class="Props__label">
+					{label}
+				</lable>
+				<select name={label} class="Props__select">
+					{values.map(value => <option value={value}>{value}</option>)}
+				</select>
+			</div>
+		))}
+	</div>
+);
 
-	// gets called when this route is navigated to
+export default class Profile extends Component {
+	state = {
+		product: null,
+		props: []
+	};
+
 	componentDidMount() {
 		getProduct(this.props.id).then(product => {
 			this.setState({ product });
 		});
+		getProductProps(this.props.id).then(props => {
+			this.setState({ props });
+		});
 	}
 
-	render({ id }, { product }) {
+	onSubmit = e => {
+		e.preventDefault();
+		const form = document.querySelector('.ProductForm');
+		const user = Array.from(new FormData(form).entries());
+		const item = {
+			id: this.props.id,
+			name: this.state.product.name,
+			image: this.state.product.images[0],
+			price: this.state.product.price,
+			user
+		};
+	};
+
+	render({ id }, { product, props }) {
 		if (product) {
 			const { name, description, price, custom, images } = product;
 			return (
@@ -34,9 +71,11 @@ export default class Profile extends Component {
 					<h1>name: {name}</h1>
 					<p>description: {description}</p>
 					<p>price: {price}</p>
-					<CustomFields number={2} {...custom} />
-					<button>Buy</button>
-					<button>Add to basket</button>
+					<form onSubmit={this.onSubmit} class="ProductForm">
+						<PropsForm data={props} />
+						<CustomFields {...custom} />
+						<button>Buy</button>
+					</form>
 				</div>
 			);
 		}
