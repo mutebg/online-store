@@ -17,11 +17,8 @@ export class Header extends Component {
 	render({ basket }, { showBasket }) {
 		return (
 			<header class={style.header}>
-				<h1>Preact App</h1>
+				<h1>Online Store</h1>
 				<nav>
-					<Link activeClassName={style.active} href="/">
-						Home
-					</Link>
 					<Link activeClassName={style.active} href="/basket">
 						Basket {basket.length > 0 ? `(${basket.length})` : ''}
 					</Link>

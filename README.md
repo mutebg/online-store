@@ -20,4 +20,7 @@ For detailed explanation on how things work, checkout the [CLI Readme](https://g
 
 Inspiratio:
 https://tympanus.net/Development/CheckoutConcepts/index.html
+https://tympanus.net/Development/ElasticCircleSlideshow/
+https://tympanus.net/Development/ExpandingGridItemAnimation/
+https://tympanus.net/Blueprints/ProductComparison/
 

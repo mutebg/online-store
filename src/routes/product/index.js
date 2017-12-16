@@ -1,16 +1,17 @@
 import { h, Component } from 'preact';
 import { connect } from 'unistore/preact';
 import actions from '../../actions';
+import { formatCurrency } from '../../utils/format';
 
 const CustomFields = ({ number, label, length }) => {
 	const list = [];
 	for (let i = 1; i <= number; i++) {
 		list.push(
-			<div class="Custom__row">
-				<label class="Custom__label">{label + ' ' + i}</label>
+			<div class="form-row">
+				<label class="form-row__label">{label + ' ' + i}</label>
 				<input
 					name={label + i}
-					class="Custom__field"
+					class="form-row__field"
 					type="text"
 					maxLength={length}
 				/>
@@ -23,11 +24,11 @@ const CustomFields = ({ number, label, length }) => {
 const PropsForm = ({ data }) => (
 	<div class="Props">
 		{data.map(({ id, label, values }) => (
-			<div class="Props__row">
-				<lable id={id} class="Props__label">
+			<div class="form-row">
+				<lable id={id} class="form-row__label">
 					{label}
 				</lable>
-				<select name={label} class="Props__select">
+				<select name={label} class="form-row__field">
 					{values.map(value => <option value={value}>{value}</option>)}
 				</select>
 			</div>
@@ -58,15 +59,16 @@ export class Product extends Component {
 		if (product) {
 			const { name, description, price, custom, images, props } = product;
 			return (
-				<div style="margin-top: 100px">
-					<div>{images.map(img => <img src={img} />)}</div>
-					<h1>name: {name}</h1>
-					<p>description: {description}</p>
-					<p>price: {price}</p>
-					<form onSubmit={this.onSubmit} class="ProductForm">
+				<div class="Details">
+					{images.map(img => <img src={img} class="Details__image" />)}
+					<h1 class="Details__name">{name}</h1>
+					<p class="Details__price">{formatCurrency(price)}</p>
+					<p class="Details__description">{description}</p>
+
+					<form onSubmit={this.onSubmit} class="DetailsForm">
 						<PropsForm data={props} />
 						<CustomFields {...custom} />
-						<button>Buy</button>
+						<button class="Details__buy">Buy</button>
 					</form>
 				</div>
 			);

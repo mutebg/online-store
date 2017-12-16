@@ -65,15 +65,16 @@ export class Home extends Component {
 const Product = ({ image, price, name, id }) => (
 	<Link class="product" href={'/product/' + id}>
 		<div class="product__bg" />
-		<div class="product__info">
+		<div class="product__thumb">
 			<img src={image} class="product__image" />
-			<div class="product__text">
-				<h2 class="product__name">{name}</h2>
-				<p class="product__price">
-					<span class="visuallyhidden">Price:</span> {formatCurrency(price)}
-				</p>
-			</div>
 		</div>
+		<div class="product__text">
+			<h2 class="product__name">{name}</h2>
+			<p class="product__price">
+				<span class="visuallyhidden">Price:</span> {formatCurrency(price)}
+			</p>
+		</div>
+		<div class="product__more">+</div>
 	</Link>
 );
 
