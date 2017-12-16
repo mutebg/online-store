@@ -1,5 +1,6 @@
-export const getProducts = () =>
-	fetch('/data/products.json').then(data => data.json());
+import { get } from './api';
+
+export const getProducts = () => get('products');
 
 export const saveOrder = (basketItems, shipping) => {
 	console.log('TODO');

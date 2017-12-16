@@ -23,6 +23,8 @@
     "preact-cli": "^2.0.0"
   },
   "dependencies": {
+    "braintree-web": "^3.26.0",
+    "braintree-web-drop-in": "^1.9.2",
     "firebase": "^4.6.2",
     "preact": "^8.2.7",
     "preact-compat": "^3.17.0",
