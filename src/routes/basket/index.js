@@ -1,37 +1,39 @@
 import { h, Component } from 'preact';
+import { connect } from 'unistore/preact';
+import actions from '../../actions';
+import { buildBasketList } from '../../utils/cart';
 
-export default class Home extends Component {
-	state = {
-		items: []
-	};
+export class Basket extends Component {
+	render({ basket, products, removeBasketItem }) {
+		const { items, total } = buildBasketList(products, basket);
+		console.log({ items, total });
 
-	render(props, { items }) {
 		return (
 			<div>
 				<h1>Your Cart</h1>
-				<Basket items={items} />
+				<BasketList items={items} total={total} onRemove={removeBasketItem} />
 				<CheckOut />
 			</div>
 		);
 	}
 }
 
-const Basket = ({ items }) => (
-	<table class="Basket">
-		{items.map(item => (
+const BasketList = ({ items, total, onRemove }) => (
+	<table class="Basket" border={1}>
+		{items.map((item, index) => (
 			<tr class="BasketItem">
 				<td>
-					<img src={item.image} />
+					<img src={item.images[0]} width={100} />
 				</td>
 				<td>{item.name}</td>
 				<td>{item.price}</td>
 				<td>
-					<button>remove</button>
+					<button onClick={() => onRemove(index)}>remove</button>
 				</td>
 			</tr>
 		))}
 		<tr colspan="4">
-			<td>Total: Blah</td>
+			<td>Total: {total}</td>
 		</tr>
 	</table>
 );
@@ -52,3 +54,5 @@ const CheckOut = () => (
 		<input name="delivery" type="radio" id="delivery_2" value="2" />
 	</div>
 );
+
+export default connect('basket,products', actions)(Basket);

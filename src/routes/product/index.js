@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
-import { getProduct, getProductProps } from '../../utils/db';
+import { connect } from 'unistore/preact';
+import actions from '../../actions';
 
 const CustomFields = ({ number, label, length }) => {
 	const list = [];
@@ -34,20 +35,10 @@ const PropsForm = ({ data }) => (
 	</div>
 );
 
-export default class Profile extends Component {
+export class Product extends Component {
 	state = {
-		product: null,
-		props: []
+		product: null
 	};
-
-	componentDidMount() {
-		getProduct(this.props.id).then(product => {
-			this.setState({ product });
-		});
-		getProductProps(this.props.id).then(props => {
-			this.setState({ props });
-		});
-	}
 
 	onSubmit = e => {
 		e.preventDefault();
@@ -55,16 +46,17 @@ export default class Profile extends Component {
 		const user = Array.from(new FormData(form).entries());
 		const item = {
 			id: this.props.id,
-			name: this.state.product.name,
-			image: this.state.product.images[0],
-			price: this.state.product.price,
 			user
 		};
+
+		this.props.addBasketItem(item);
 	};
 
-	render({ id }, { product, props }) {
+	render({ products, id }) {
+		const product = products.filter(p => p.id === id)[0];
+
 		if (product) {
-			const { name, description, price, custom, images } = product;
+			const { name, description, price, custom, images, props } = product;
 			return (
 				<div style="margin-top: 100px">
 					<div>{images.map(img => <img src={img} />)}</div>
@@ -82,3 +74,5 @@ export default class Profile extends Component {
 		return 'loading';
 	}
 }
+
+export default connect('products', actions)(Product);

@@ -1,24 +1,12 @@
 import { h, Component } from 'preact';
+import { connect } from 'unistore/preact';
+
+import actions from '../../actions';
+
 import { formatCurrency } from '../../utils/format';
-import { getProducts } from '../../utils/db';
 import { Link } from 'preact-router/match';
 
-const data = [];
-
-for (let i = 1; i <= 10; i++) {
-	data.push({
-		id: i,
-		image: 'https://placeimg.com/300/300/any',
-		name: 'Product ' + i,
-		price: i + 4
-	});
-}
-
-export default class Home extends Component {
-	state = {
-		products: []
-	};
-
+export class Home extends Component {
 	handleOnClick = index => {
 		const $gridItem = document.querySelector(
 			`.grid__item:nth-child(${index + 1})`
@@ -56,16 +44,7 @@ export default class Home extends Component {
 		`;
 	};
 
-	componentDidMount() {
-		getProducts().then(snapshot => {
-			this.setState({
-				products: snapshot
-			});
-		});
-	}
-
-	render(props, { products }) {
-		console.log(products);
+	render({ products }) {
 		return (
 			<div class="home">
 				<div class="grid">
@@ -97,3 +76,5 @@ const Product = ({ image, price, name, id }) => (
 		</div>
 	</Link>
 );
+
+export default connect('products', actions)(Home);

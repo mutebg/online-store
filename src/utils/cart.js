@@ -1,7 +1,20 @@
-export const addItem = (cart, item) => {};
+export const buildBasketList = (products, basketItems) => {
+	const productsIds = products.reduce((prev, next) => {
+		prev[next.id] = next;
+		return prev;
+	}, {});
 
-export const removeItem = (cart, item) => {};
-
-export const loadCart = () => {};
-
-export const saveCart = cart => {};
+	return basketItems.reduce(
+		(prev, next) => {
+			const item = {
+				...next,
+				...productsIds[next.id]
+			};
+			return {
+				items: prev.items.concat([item]),
+				total: prev.total + item.price
+			};
+		},
+		{ items: [], total: 0 }
+	);
+};

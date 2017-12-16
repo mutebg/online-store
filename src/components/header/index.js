@@ -1,9 +1,20 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
+import { connect } from 'unistore/preact';
+import actions from '../../actions';
+
 import style from './style';
 
-export default class Header extends Component {
-	render() {
+export class Header extends Component {
+	state = {
+		showBasket: false
+	};
+
+	componentDidMount() {
+		this.props.loadProducts();
+	}
+
+	render({ basket }, { showBasket }) {
 		return (
 			<header class={style.header}>
 				<h1>Preact App</h1>
@@ -12,10 +23,12 @@ export default class Header extends Component {
 						Home
 					</Link>
 					<Link activeClassName={style.active} href="/basket">
-						Basket
+						Basket {basket.length > 0 ? `(${basket.length})` : ''}
 					</Link>
 				</nav>
 			</header>
 		);
 	}
 }
+
+export default connect('basket', actions)(Header);

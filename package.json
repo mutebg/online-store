@@ -24,8 +24,9 @@
   },
   "dependencies": {
     "firebase": "^4.6.2",
-    "preact": "^8.2.1",
+    "preact": "^8.2.7",
     "preact-compat": "^3.17.0",
-    "preact-router": "^2.5.5"
+    "preact-router": "^2.5.5",
+    "unistore": "^3.0.2"
   }
 }
