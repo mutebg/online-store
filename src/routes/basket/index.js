@@ -6,7 +6,10 @@ import { buildBasketList } from '../../utils/cart';
 export class Basket extends Component {
 	render({ basket, products, removeBasketItem }) {
 		const { items, total } = buildBasketList(products, basket);
-		console.log({ items, total });
+
+		if (items.length === 0) {
+			return <p>your basket is empty</p>;
+		}
 
 		return (
 			<div>
