@@ -9,32 +9,45 @@ export default class Shiping extends Component {
 	};
 
 	methods = [
-		{ id: 1, name: 'Офис на Еконт' },
-		{ id: 2, name: 'Доставка до врата' }
+		{ id: 1, name: 'Pickup office', price: 4 },
+		{ id: 2, name: 'Door', price: 6 }
 	];
 
 	changeMethod = shippingMethod => {
 		this.setState({ shippingMethod });
 	};
 
-	componentDidMount() {}
-
-	loadOffices = city => {};
-
 	render(props, { isLoading, shippingMethod }) {
 		return (
 			<div class="Shiping">
 				<div>
 					<label>Name</label>
-					<input name="name" />
+					<input
+						name="name"
+						placeholder="Full name"
+						autocomplete="name"
+						required
+					/>
 				</div>
 				<div>
 					<label>E-mail</label>
-					<input name="email" />
+					<input
+						name="email"
+						type="email"
+						placeholder="name@example.com"
+						required
+						autocomplete="email"
+					/>
 				</div>
 				<div>
 					<label>Phone</label>
-					<input name="phone" />
+					<input
+						name="phone"
+						type="tel"
+						placeholder="+1-650-450-1212"
+						required
+						autocomplete="tel"
+					/>
 				</div>
 				{this.methods.map(({ id, name }) => (
 					<div>
@@ -62,23 +75,23 @@ class Office extends Component {
 		offices: []
 	};
 
-	componentDidMount() {
-		loadOfficesCities().then(({ cities }) => {
-			this.setState({ cities });
-		});
-	}
-
 	loadOffices = e => {
 		loadOfficesInCity(e.target.value).then(({ offices }) => {
 			this.setState({ offices });
 		});
 	};
 
+	componentDidMount() {
+		loadOfficesCities().then(({ cities }) => {
+			this.setState({ cities });
+		});
+	}
+
 	render(props, { cities, offices }) {
 		return (
 			<div>
 				<div>
-					<label for="select_city">Град</label>
+					<label for="select_city">City</label>
 					<select id="select_city" onChange={this.loadOffices}>
 						<option value="">----</option>
 						{cities.map(city => <option>{city}</option>)}
@@ -86,7 +99,7 @@ class Office extends Component {
 				</div>
 				{offices.length > 0 && (
 					<div>
-						<label for="select_office">Офис</label>
+						<label for="select_office">Office</label>
 						<select id="select_office" name="office_code">
 							{offices.map(({ office_code, address }) => (
 								<option value={office_code}>
@@ -106,27 +119,36 @@ class Address extends Component {
 		return (
 			<div>
 				<div>
-					<label for="post_code">Пощенски код:</label>
-					<input type="text" name="post_code" />
+					<label for="post_code">Post code:</label>
+					<input
+						type="text"
+						name="post_code"
+						required
+						placeholder="1001"
+						autocomplete="shipping postal-code"
+					/>
 				</div>
 				<div>
-					<label for="city">Град</label>
-					<input type="text" id="city" name="city" />
+					<label for="city">City</label>
+					<input
+						type="text"
+						id="city"
+						name="city"
+						placeholder="Sofia"
+						autocomplete="shipping locality"
+					/>
 				</div>
 				<div>
-					<label for="quarter">Квартал:</label>
-					<input type="text" id="quarter" name="quarter" />
+					<label for="street">Street:</label>
+					<input
+						type="text"
+						id="street"
+						name="street"
+						autocomplete="shipping street-address"
+					/>
 				</div>
 				<div>
-					<label for="street">Улица:</label>
-					<input type="text" id="street" name="street" />
-				</div>
-				<div>
-					<label for="street_num">Номер:</label>
-					<input type="text" id="street_num" name="street_num" />
-				</div>
-				<div>
-					<label for="other">Друго:</label>
+					<label for="other">Other:</label>
 					<input type="text" id="other" name="other" />
 				</div>
 			</div>
