@@ -48,7 +48,8 @@ const Product = ({ image, price, name, id, isActive }) => {
 		? {
 			zIndex: 11,
 			transform: `scale(10)`,
-			background: '#f0f0f0'
+			background: '#f0f0f0',
+			willChange: 'background'
 		}
 		: {};
 

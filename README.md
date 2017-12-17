@@ -18,9 +18,11 @@ npm run serve
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
 
-Inspiratio:
+Payment request:
+https://developers.braintreepayments.com/guides/payment-request/setup-and-integration/javascript/v3
+
+Inspiration:
 https://tympanus.net/Development/CheckoutConcepts/index.html
 https://tympanus.net/Development/ElasticCircleSlideshow/
 https://tympanus.net/Development/ExpandingGridItemAnimation/
 https://tympanus.net/Blueprints/ProductComparison/
-

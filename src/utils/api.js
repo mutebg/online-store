@@ -1,5 +1,6 @@
 const config = {
 	API_URL: 'http://localhost:5000/onlinestore-2e046/us-central1/api/'
+	//API_URL: 'https://us-central1-onlinestore-2e046.cloudfunctions.net/api/'
 };
 
 const apiFetch = (url, method = 'get', data = {}) => {
