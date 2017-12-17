@@ -2,10 +2,13 @@ import { h, Component } from 'preact';
 import { getToken, makeTransaction } from '../../utils/cart';
 let dropin = require('braintree-web-drop-in');
 
+import Shiping from '../shiping';
+
 export default class CheckOut extends Component {
 	state = {
 		isLoading: true,
-		message: ''
+		message: '',
+		shippingMethod: 1
 	};
 
 	componentDidMount() {
@@ -77,22 +80,8 @@ export default class CheckOut extends Component {
 		return (
 			<div class="CheckOut">
 				{messageEl}
-				<div>
-					<label>Name</label>
-					<input name="name" />
-				</div>
-				<div>
-					<label>E-mail</label>
-					<input name="email" />
-				</div>
-				<div>
-					<label>Phone</label>
-					<input name="phone" />
-				</div>
-				<label for="delivery_1">Офис на Еконт</label>
-				<input name="delivery" type="radio" id="delivery_1" value="1" />
-				<label for="delivery_2">Доставка до врата</label>
-				<input name="delivery" type="radio" id="delivery_2" value="2" />
+
+				<Shiping />
 
 				<div id="dropin-container" />
 				{message !== 'success' && (
