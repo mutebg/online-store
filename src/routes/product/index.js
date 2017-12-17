@@ -60,12 +60,12 @@ export class Product extends Component {
 			const { name, description, price, custom, images, props } = product;
 			return (
 				<div class="Details">
-					{images.map(img => <img src={img} class="Details__image" />)}
-					<h1 class="Details__name">{name}</h1>
-					<p class="Details__price">{formatCurrency(price)}</p>
-					<p class="Details__description">{description}</p>
+					{images.map(img => <img src={img} class="Details__image showIn" />)}
+					<h1 class="Details__name showIn">{name}</h1>
+					<p class="Details__price showIn">{formatCurrency(price)}</p>
+					<p class="Details__description showIn">{description}</p>
 
-					<form onSubmit={this.onSubmit} class="DetailsForm">
+					<form onSubmit={this.onSubmit} class="DetailsForm showIn">
 						<PropsForm data={props} />
 						<CustomFields {...custom} />
 						<button class="Details__buy">Buy</button>

@@ -246,10 +246,20 @@ body {
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
-	background: var(--primary-light);
-	transition: 0.4s linear transform;
+	background: #fff;
+	transition: 0.4s linear all;
 	position: absolute;
 	overflow: hidden;
+	top: 0;
+	left: 0;
+}
+
+.product__bg {
+	z-index: 2;
+}
+
+.product__thumb {
+	z-index: 3;
 }
 
 .product__text {
@@ -257,7 +267,7 @@ body {
 	position: absolute;
 	top: 300px;
 	padding: 0.5em;
-	transition: 0.4s linear transform;
+	transition: 0.4s linear transform, 0.6s linear opacity;
 	text-align: center;
 	width: 300px;
 	font-size: 1.2em;
@@ -271,10 +281,6 @@ body {
 .product__price {
 	font-weight: bold;
 	display: inline-block;
-}
-
-.product__thumb {
-	z-index: 2;
 }
 
 .product__image {
@@ -326,10 +332,17 @@ body {
 	text-transform: uppercase;
 	margin: 0 0 0.5em;
 }
+
+.Details__name {
+	animation-delay: 0.1s;
+}
+
 .Details__price {
 	color: var(--primary);
+	animation-delay: 0.2s;
 }
 .Details__description {
+	animation-delay: 0.3s;
 	margin-bottom: 1em;
 }
 
@@ -351,6 +364,7 @@ body {
 	max-width: 600px;
 	margin: 0 auto;
 	padding: 2em;
+	animation-delay: 0.4s;
 }
 
 .form-row {
@@ -369,4 +383,24 @@ body {
 	height: 3em;
 	padding: 1em;
 	font-size: 16px;
+}
+
+.showIn {
+	animation-name: fade-in;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	animation-duration: 0.5s;
+	transform: translateY(400px);
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translateY(400px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
