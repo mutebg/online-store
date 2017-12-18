@@ -227,82 +227,13 @@ body {
 	justify-content: space-around;
 }
 
-.home {
-	margin-top: 80px;
+.wrapper {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
 }
 
 .grid__item {
-}
-
-.product {
-	position: relative;
-	display: block;
-	width: 300px;
-	height: 400px;
-}
-
-.product__thumb,
-.product__bg {
-	width: 300px;
-	height: 300px;
-	border-radius: 50%;
-	background: #fff;
-	transition: 0.4s linear all;
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-	left: 0;
-}
-
-.product__bg {
-	z-index: 2;
-}
-
-.product__thumb {
-	z-index: 3;
-}
-
-.product__text {
-	color: #000;
-	position: absolute;
-	top: 300px;
-	padding: 0.5em;
-	transition: 0.4s linear transform, 0.6s linear opacity;
-	text-align: center;
-	width: 300px;
-	font-size: 1.2em;
-}
-
-.product__name {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.product__price {
-	font-weight: bold;
-	display: inline-block;
-}
-
-.product__image {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
-
-.product__more {
-	width: 52px;
-	height: 52px;
-	background: var(--primary-light);
-	border-radius: 50%;
-	font-weight: bold;
-	color: #fff;
-	line-height: 48px;
-	text-align: center;
-	font-size: 24px;
-	top: 200px;
-	right: 0px;
-	position: absolute;
-	z-index: 3;
 }
 
 .visuallyhidden {
@@ -315,58 +246,6 @@ body {
 	padding: 0;
 	position: absolute;
 	width: 1px;
-}
-
-.Details {
-	text-align: center;
-}
-
-.Details__image {
-	padding: 2em;
-	border-radius: 50%;
-	overflow: hidden;
-	max-width: 100%;
-}
-
-.Details__name,
-.Details__price {
-	font-size: 2.5em;
-	text-transform: uppercase;
-	margin: 0 0 0.5em;
-}
-
-.Details__name {
-	animation-delay: 0.1s;
-}
-
-.Details__price {
-	color: var(--primary);
-	animation-delay: 0.2s;
-}
-.Details__description {
-	animation-delay: 0.3s;
-	margin-bottom: 1em;
-}
-
-.Details__buy {
-	background: var(--primary);
-	font-size: 24px;
-	color: #fff;
-	width: 63%;
-	padding: 0.5em;
-	border-radius: 5px;
-	margin: 0 auto;
-	display: block;
-}
-
-.DetailsForm {
-	text-align: left;
-	background: #fff;
-	border-radius: 1em 1em 0 0;
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 2em;
-	animation-delay: 0.4s;
 }
 
 .form-row {

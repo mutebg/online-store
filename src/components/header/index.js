@@ -3,7 +3,7 @@ import { Link } from 'preact-router/match';
 import { connect } from 'unistore/preact';
 import actions from '../../actions';
 
-import style from './style';
+import './style';
 
 export class Header extends Component {
 	state = {
@@ -16,10 +16,10 @@ export class Header extends Component {
 
 	render({ basket }, { showBasket }) {
 		return (
-			<header class={style.header}>
+			<header class="header">
 				<h1>Online Store</h1>
 				<nav>
-					<Link activeClassName={style.active} href="/basket">
+					<Link href="/basket">
 						Basket {basket.length > 0 ? `(${basket.length})` : ''}
 					</Link>
 				</nav>

@@ -22,11 +22,13 @@ export default class App extends Component {
 		return (
 			<div id="app">
 				<Header />
-				<Router onChange={this.handleRoute}>
-					<Home path="/" />
-					<Product path="/product/:id" />
-					<Basket path="/basket" />
-				</Router>
+				<div class="wrapper">
+					<Router onChange={this.handleRoute}>
+						<Home path="/" />
+						<Product path="/product/:id" />
+						<Basket path="/basket" />
+					</Router>
+				</div>
 			</div>
 		);
 	}

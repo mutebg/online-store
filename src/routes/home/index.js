@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { connect } from 'unistore/preact';
 import { route } from 'preact-router';
+import './style';
 
 import actions from '../../actions';
 
