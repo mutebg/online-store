@@ -70,7 +70,6 @@ video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	outline: 0;
 	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
@@ -99,19 +98,6 @@ nav ul {
 	list-style: none;
 }
 
-blockquote,
-q {
-	quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-	content: '';
-	content: none;
-}
-
 a {
 	margin: 0;
 	padding: 0;
@@ -120,44 +106,9 @@ a {
 	background: transparent;
 }
 
-/* change colours to suit your needs */
-ins {
-	background-color: #ff9;
-	color: #000;
-	text-decoration: none;
-}
-
-/* change colours to suit your needs */
-mark {
-	background-color: #ff9;
-	color: #000;
-	font-style: italic;
-	font-weight: bold;
-}
-
-del {
-	text-decoration: line-through;
-}
-
-abbr[title],
-dfn[title] {
-	border-bottom: 1px dotted;
-	cursor: help;
-}
-
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-/* change border colour to suit your needs */
-hr {
-	display: block;
-	height: 1px;
-	border: 0;
-	border-top: 1px solid #cccccc;
-	margin: 1em 0;
-	padding: 0;
 }
 
 input,
@@ -178,7 +129,6 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
-	outline: none;
 }
 
 a {
@@ -228,7 +178,7 @@ body {
 }
 
 .wrapper {
-	padding: 56px 20px;
+	padding: 56px 20px 0 20px;
 	min-height: 100%;
 	width: 100%;
 }

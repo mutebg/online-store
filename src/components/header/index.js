@@ -2,6 +2,8 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 import { connect } from 'unistore/preact';
 import actions from '../../actions';
+import { buildBasketList } from '../../utils/cart';
+import { formatCurrency } from '../../utils/format';
 
 import './style';
 
@@ -14,13 +16,19 @@ export class Header extends Component {
 		this.props.loadProducts();
 	}
 
-	render({ basket }, { showBasket }) {
+	render({ basket, products }, { showBasket }) {
+		const { total } = buildBasketList(products, basket);
+
 		return (
 			<header class="header">
-				<h1>Online Store</h1>
+				<h1>
+					<Link href="/">Online Store</Link>
+				</h1>
 				<nav>
 					<Link href="/basket">
-						Basket {basket.length > 0 ? `(${basket.length})` : ''}
+						{basket.length > 0
+							? `Buy ${basket.length} products for ${formatCurrency(total)}`
+							: ''}
 					</Link>
 				</nav>
 			</header>
@@ -28,4 +36,4 @@ export class Header extends Component {
 	}
 }
 
-export default connect('basket', actions)(Header);
+export default connect('basket,products', actions)(Header);

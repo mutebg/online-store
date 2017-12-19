@@ -20,18 +20,20 @@ export default class Shiping extends Component {
 	render(props, { isLoading, shippingMethod }) {
 		return (
 			<div class="Shiping">
-				<div>
-					<label>Name</label>
+				<div class="form-row">
+					<label class="form-row__label">Name</label>
 					<input
+						class="form-row__field"
 						name="name"
 						placeholder="Full name"
 						autocomplete="name"
 						required
 					/>
 				</div>
-				<div>
-					<label>E-mail</label>
+				<div class="form-row">
+					<label class="form-row__label">E-mail</label>
 					<input
+						class="form-row__field"
 						name="email"
 						type="email"
 						placeholder="name@example.com"
@@ -39,9 +41,10 @@ export default class Shiping extends Component {
 						autocomplete="email"
 					/>
 				</div>
-				<div>
-					<label>Phone</label>
+				<div class="form-row">
+					<label class="form-row__label">Phone</label>
 					<input
+						class="form-row__field"
 						name="phone"
 						type="tel"
 						placeholder="+1-650-450-1212"
@@ -90,17 +93,29 @@ class Office extends Component {
 	render(props, { cities, offices }) {
 		return (
 			<div>
-				<div>
-					<label for="select_city">City</label>
-					<select id="select_city" onChange={this.loadOffices}>
+				<div class="form-row">
+					<label class="form-row__label" for="select_city">
+						City
+					</label>
+					<select
+						id="select_city"
+						onChange={this.loadOffices}
+						class="form-row__field"
+					>
 						<option value="">----</option>
 						{cities.map(city => <option>{city}</option>)}
 					</select>
 				</div>
 				{offices.length > 0 && (
-					<div>
-						<label for="select_office">Office</label>
-						<select id="select_office" name="office_code">
+					<div class="form-row">
+						<label class="form-row__label" for="select_office">
+							Office
+						</label>
+						<select
+							id="select_office"
+							name="office_code"
+							class="form-row__field"
+						>
 							{offices.map(({ office_code, address }) => (
 								<option value={office_code}>
 									{office_code} {address}
@@ -118,9 +133,12 @@ class Address extends Component {
 	render(props, state) {
 		return (
 			<div>
-				<div>
-					<label for="post_code">Post code:</label>
+				<div class="form-row">
+					<label class="form-row__label" for="post_code">
+						Post code:
+					</label>
 					<input
+						class="form-row__field"
 						type="text"
 						name="post_code"
 						required
@@ -128,9 +146,12 @@ class Address extends Component {
 						autocomplete="shipping postal-code"
 					/>
 				</div>
-				<div>
-					<label for="city">City</label>
+				<div class="form-row">
+					<label class="form-row__label" for="city">
+						City
+					</label>
 					<input
+						class="form-row__field"
 						type="text"
 						id="city"
 						name="city"
@@ -138,18 +159,23 @@ class Address extends Component {
 						autocomplete="shipping locality"
 					/>
 				</div>
-				<div>
-					<label for="street">Street:</label>
+				<div class="form-row">
+					<label class="form-row__label" for="street">
+						Street:
+					</label>
 					<input
+						class="form-row__field"
 						type="text"
 						id="street"
 						name="street"
 						autocomplete="shipping street-address"
 					/>
 				</div>
-				<div>
-					<label for="other">Other:</label>
-					<input type="text" id="other" name="other" />
+				<div class="form-row">
+					<label class="form-row__label" for="other">
+						Other:
+					</label>
+					<input type="text" id="other" name="other" class="form-row__field" />
 				</div>
 			</div>
 		);
