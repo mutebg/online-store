@@ -1,0 +1,20 @@
+.BasketPage {
+	max-width: 600px;
+	margin: 0 auto;
+
+	&__box {
+		padding: 2em;
+		background: #fff;
+		border-radius: 1em;
+	}
+
+	h1 {
+		font-size: 1.5em;
+		text-align: center;
+		margin: 2em 0 0.5em 0;
+
+		&:nth-of-type(1) {
+			margin-top: 0;
+		}
+	}
+}

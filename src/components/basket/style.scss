@@ -1,0 +1,16 @@
+.BasketTablet {
+	width: 100%;
+
+	tr td {
+		vertical-align: middle;
+		border-bottom: 1px solid #ccc;
+	}
+
+	tr:last-of-type td {
+		padding: 1em 0 0 0;
+		font-weight: bold;
+		font-size: 1.4em;
+		text-align: right;
+		border-bottom: 0;
+	}
+}

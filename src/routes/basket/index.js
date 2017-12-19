@@ -3,7 +3,10 @@ import { connect } from 'unistore/preact';
 import actions from '../../actions';
 import { buildBasketList } from '../../utils/cart';
 import CheckOut from '../../components/checkout';
+import Shiping from '../../components/shiping';
+
 import BasketList from '../../components/basket';
+import './style';
 
 export class Basket extends Component {
 	onSuccess = () => {
@@ -22,15 +25,24 @@ export class Basket extends Component {
 		}
 
 		return (
-			<div>
+			<div class="BasketPage">
 				<h1>Your Cart</h1>
-				<BasketList items={items} total={total} onRemove={removeBasketItem} />
-				<CheckOut
-					items={items}
-					total={total}
-					onSuccess={this.onSuccess}
-					onError={this.onError}
-				/>
+				<div class="BasketPage__box">
+					<BasketList items={items} total={total} onRemove={removeBasketItem} />
+				</div>
+				<h1>Shipping</h1>
+				<div class="BasketPage__box">
+					<Shiping />
+				</div>
+				<h1>Payment</h1>
+				<div class="BasketPage__box">
+					<CheckOut
+						items={items}
+						total={total}
+						onSuccess={this.onSuccess}
+						onError={this.onError}
+					/>
+				</div>
 			</div>
 		);
 	}
