@@ -25,7 +25,7 @@ export class Basket extends Component {
 		}
 
 		return (
-			<div class="BasketPage">
+			<form class="BasketPage" id="bakset-form">
 				<h1>Your Cart</h1>
 				<div class="BasketPage__box">
 					<BasketList items={items} total={total} onRemove={removeBasketItem} />
@@ -43,7 +43,7 @@ export class Basket extends Component {
 						onError={this.onError}
 					/>
 				</div>
-			</div>
+			</form>
 		);
 	}
 }

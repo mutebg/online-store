@@ -12,7 +12,7 @@ export default class CheckOut extends Component {
 		getToken().then(({ token }) => {
 			const { items, amount } = this.props;
 
-			let button = document.querySelector('#submit-button');
+			let form = document.querySelector('#bakset-form');
 
 			dropin.create(
 				{
@@ -29,13 +29,22 @@ export default class CheckOut extends Component {
 						isLoading: false
 					});
 
-					button.addEventListener('click', () => {
+					form.addEventListener('submit', e => {
+						e.preventDefault();
+						const data = Array.from(new FormData(form).entries()).reduce(
+							(prev, next) => {
+								prev[next[0]] = next[1];
+								return prev;
+							},
+							{}
+						);
+
 						instance.requestPaymentMethod(
 							(requestPaymentMethodErr, payload) => {
 								// When the user clicks on the 'Submit payment' button this code will send the
 								// encrypted payment information in a variable called a payment method nonce
 
-								makeTransaction(payload.nonce, amount, items, 'test').then(
+								makeTransaction(payload.nonce, amount, items, data).then(
 									result => {
 										instance.teardown(teardownErr => {
 											// TOOD

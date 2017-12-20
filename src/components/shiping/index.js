@@ -100,6 +100,7 @@ class Office extends Component {
 					<select
 						id="select_city"
 						onChange={this.loadOffices}
+						required
 						class="form-row__field"
 					>
 						<option value="">----</option>
@@ -112,6 +113,7 @@ class Office extends Component {
 							Office
 						</label>
 						<select
+							required
 							id="select_office"
 							name="office_code"
 							class="form-row__field"
@@ -156,6 +158,7 @@ class Address extends Component {
 						id="city"
 						name="city"
 						placeholder="Sofia"
+						required
 						autocomplete="shipping locality"
 					/>
 				</div>
@@ -168,6 +171,7 @@ class Address extends Component {
 						type="text"
 						id="street"
 						name="street"
+						required
 						autocomplete="shipping street-address"
 					/>
 				</div>
