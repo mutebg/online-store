@@ -10,7 +10,7 @@ export default class CheckOut extends Component {
 
 	componentDidMount() {
 		getToken().then(({ token }) => {
-			const { items, amount } = this.props;
+			const { items, total } = this.props;
 
 			let form = document.querySelector('#bakset-form');
 
@@ -43,8 +43,7 @@ export default class CheckOut extends Component {
 							(requestPaymentMethodErr, payload) => {
 								// When the user clicks on the 'Submit payment' button this code will send the
 								// encrypted payment information in a variable called a payment method nonce
-
-								makeTransaction(payload.nonce, amount, items, data).then(
+								makeTransaction(payload.nonce, total, items, data).then(
 									result => {
 										instance.teardown(teardownErr => {
 											// TOOD

@@ -57,7 +57,11 @@ app.post('/checkout', (req, res) => {
 		},
 		(error, result) => {
 			if (result) {
-				res.send(result);
+				saveProduct(amount, user, items).then(() => {
+					res.send({
+						success: true
+					});
+				});
 			}
 			else {
 				res.status(500).send(error);
@@ -133,6 +137,7 @@ app.get('/econt/offices', (req, res) => {
 			});
 		});
 });
+
 app.get('/econt/offices/:city', (req, res) => {
 	const offices = [];
 	admin
@@ -149,9 +154,8 @@ app.get('/econt/offices/:city', (req, res) => {
 			});
 		});
 });
-app.post('/econt/calculate/:type', (req, res) => {
-	console.log(req.body);
 
+app.post('/econt/calculate/:type', (req, res) => {
 	const receiver =
 		req.params.type === 'office'
 			? `
@@ -261,5 +265,37 @@ app.post('/econt/calculate/:type', (req, res) => {
 	form.append('xml', xml);
 });
 
+const saveProduct = (amount, user, items) => {
+	const flatProductList = items.map(item =>
+		item.user.reduce(
+			(prev, next) => {
+				prev[next[0]] = next[1];
+				return prev;
+			},
+			{
+				id: item.id,
+				name: item.name,
+				price: item.price
+			}
+		)
+	);
+
+	return admin
+		.firestore()
+		.collection('orders')
+		.add({
+			amount,
+			user,
+			products: flatProductList
+		});
+};
+
 // Expose the API as a function
 exports.api = functions.https.onRequest(app);
+
+exports.sendEmail = functions.document('orders/:id').onWrite(event => {
+	const orderId = event.params.id;
+	const data = event.data.data();
+	// Example
+	// https://github.com/firebase/functions-samples/blob/master/email-confirmation/functions/index.js
+});
