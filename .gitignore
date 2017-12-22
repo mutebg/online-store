@@ -2,3 +2,4 @@ node_modules
 /build
 /*.log
 /functions/config.json
+/functions/firebase-debug.log

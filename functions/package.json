@@ -16,6 +16,8 @@
     "firebase-admin": "^5.5.1",
     "firebase-functions": "^0.7.3",
     "lodash": "^4.17.2",
+    "mailgun-js": "^0.13.1",
+    "nodemailer": "^4.4.1",
     "request": "^2.81.0",
     "xml-js": "^1.5.2"
   },
