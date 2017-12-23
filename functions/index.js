@@ -80,32 +80,7 @@ app.post('/checkout', (req, res) => {
 	);
 });
 
-app.get('/order/:id', (req, res) =>
-	admin
-		.firestore()
-		.collection('orders')
-		.doc(req.params.id)
-		.get()
-		.then(doc => {
-			if (!doc.exists) {
-				res.status(500).send('No such document!');
-			}
-			else {
-				const docData = doc.data();
-				//res.send(docData);
-
-				if (docData.user.email === req.query.email) {
-					res.send(docData);
-				}
-				else {
-					res.status(500).send('Error getting document');
-				}
-			}
-		})
-		.catch(err => {
-			res.status(500).send('Error getting document');
-		})
-);
+app.use('/orders', require('./orders'));
 
 app.use('/econt', require('./econt'));
 
@@ -156,20 +131,20 @@ function sendEmail({ from, to, subject, text }) {
 	});
 }
 
-function saveProduct(amount, user, items) {
-	const flatProductList = items.map(item =>
-		item.user.reduce(
-			(prev, next) => {
-				prev[next[0]] = next[1];
-				return prev;
-			},
-			{
-				id: item.id,
-				name: item.name,
-				price: item.price
-			}
-		)
-	);
+function saveProduct(amount, user, products) {
+	// const flatProductList = items.map(item =>
+	// 	item.user.reduce(
+	// 		(prev, next) => {
+	// 			prev[next[0]] = next[1];
+	// 			return prev;
+	// 		},
+	// 		{
+	// 			id: item.id,
+	// 			name: item.name,
+	// 			price: item.price
+	// 		}
+	// 	)
+	// );
 
 	return admin
 		.firestore()
@@ -177,6 +152,6 @@ function saveProduct(amount, user, items) {
 		.add({
 			amount,
 			user,
-			products: flatProductList
+			products
 		});
 }

@@ -6,8 +6,8 @@ import Home from '../routes/home';
 import Product from '../routes/product';
 import Basket from '../routes/basket';
 import Order from '../routes/order';
-// import Home from 'async!../routes/home';
-// import Profile from 'async!../routes/profile';
+import AdminOrders from 'async!../routes/admin/orders';
+import AdminViwOrder from 'async!../routes/admin/vieworder';
 
 export default class App extends Component {
 
@@ -29,6 +29,8 @@ export default class App extends Component {
 						<Product path="/product/:id" />
 						<Basket path="/basket" />
 						<Order path="/order/:id/:email" />
+						<AdminOrders path="/admin/orders" />
+						<AdminViwOrder path="/admin/order/:id" />
 					</Router>
 				</div>
 			</div>

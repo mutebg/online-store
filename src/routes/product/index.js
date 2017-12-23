@@ -38,19 +38,22 @@ const PropsForm = ({ data }) => (
 );
 
 export class Product extends Component {
-	state = {
-		product: null
-	};
-
 	onSubmit = e => {
 		e.preventDefault();
-		const form = document.querySelector('.ProductForm');
+		const form = document.querySelector('.DetailsForm');
 		const user = Array.from(new FormData(form).entries());
+		const product = this.props.products.filter(p => p.id === this.props.id)[0];
+
 		const item = {
 			id: this.props.id,
-			user
+			name: product.name,
+			price: product.price,
+			image: product.images[0]
 		};
 
+		user.forEach(v => {
+			item[v[0]] = v[1];
+		});
 		this.props.addBasketItem(item);
 	};
 

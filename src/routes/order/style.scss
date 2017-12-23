@@ -1,51 +1,10 @@
-.Details {
-	text-align: center;
-
-	&__image {
-		padding: 2em;
-		border-radius: 50%;
-		overflow: hidden;
-		max-width: 100%;
-	}
-
-	&__name,
-	&__price {
-		font-size: 2.5em;
-		text-transform: uppercase;
-		margin: 0 0 0.5em;
-	}
-
-	&__name {
-		animation-delay: 0.1s;
-	}
-
-	&__price {
-		color: var(--primary);
-		animation-delay: 0.2s;
-	}
-	&__description {
-		animation-delay: 0.3s;
-		margin-bottom: 1em;
-	}
-
-	&__buy {
-		background: var(--primary);
-		font-size: 24px;
-		color: #fff;
-		width: 63%;
-		padding: 0.5em;
-		border-radius: 5px;
-		margin: 0 auto;
-		display: block;
-	}
+.order-product-box {
+	padding: 5px;
+	border: 1px solid #ccc;
+	margin: 5px 0;
 }
 
-.DetailsForm {
-	text-align: left;
-	background: #fff;
-	border-radius: 1em 1em 0 0;
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 2em;
-	animation-delay: 0.4s;
+.order-total {
+	font-weight: bold;
+	font-size: 2em;
 }

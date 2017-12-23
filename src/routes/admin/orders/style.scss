@@ -1,0 +1,15 @@
+.orders-table {
+	//border: 1px solid #ccc;
+	width: 100%;
+
+	th {
+		background: #ccc;
+		font-weight: bold;
+	}
+
+	td,
+	th {
+		border: 1px solid #ccc;
+		padding: 5px;
+	}
+}

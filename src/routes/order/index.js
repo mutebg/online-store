@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import './style';
 import { formatCurrency } from '../../utils/format';
-import { loadOrder } from '../../utils/cart';
+import { formatProduct, loadOrder } from '../../utils/order';
 
 export class Order extends Component {
 	state = {
@@ -11,7 +11,6 @@ export class Order extends Component {
 	componentDidMount() {
 		const { email, id } = this.props;
 		loadOrder(id, email).then(data => {
-			console.log({ data });
 			this.setState({
 				order: data
 			});
@@ -21,17 +20,26 @@ export class Order extends Component {
 	render({ id }, { order }) {
 		if (order) {
 			const { amount, products, user } = order;
-			const productList = products.map(p => (
-				<p>
-					{p.name} for {formatCurrency(p.price)}
-				</p>
-			));
+			const productList = products.map(p => {
+				const { price, name, custom } = formatProduct(p);
+				return (
+					<p class="order-product-box">
+						{name} for {formatCurrency(price)}
+						<br />
+						{custom.map(({ key, value }) => (
+							<span>
+								{key} : {value} <br />
+							</span>
+						))}
+					</p>
+				);
+			});
 			return (
 				<div>
 					Hello {user.name} <br />
 					Your order is <strong>{id}</strong>
 					{productList}
-					Total amount: {formatCurrency(amount)}
+					<p class="order-total">Total amount: {formatCurrency(amount)}</p>
 				</div>
 			);
 		}
