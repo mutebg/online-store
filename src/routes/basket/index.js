@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { connect } from 'unistore/preact';
 import actions from '../../actions';
-import { buildBasketList } from '../../utils/cart';
+import { getBasketTotal } from '../../utils/cart';
 import CheckOut from '../../components/checkout';
 import Shiping from '../../components/shiping';
 
@@ -18,9 +18,9 @@ export class Basket extends Component {
 	};
 
 	render({ basket, products, removeBasketItem }) {
-		const { items, total } = buildBasketList(products, basket);
+		const total = getBasketTotal(basket);
 
-		if (items.length === 0) {
+		if (basket.length === 0) {
 			return <p>your basket is empty</p>;
 		}
 
@@ -28,7 +28,11 @@ export class Basket extends Component {
 			<form class="BasketPage" id="bakset-form">
 				<h1>Your Cart</h1>
 				<div class="BasketPage__box">
-					<BasketList items={items} total={total} onRemove={removeBasketItem} />
+					<BasketList
+						items={basket}
+						total={total}
+						onRemove={removeBasketItem}
+					/>
 				</div>
 				<h1>Shipping</h1>
 				<div class="BasketPage__box">
@@ -37,7 +41,7 @@ export class Basket extends Component {
 				<h1>Payment</h1>
 				<div class="BasketPage__box">
 					<CheckOut
-						items={items}
+						items={basket}
 						total={total}
 						onSuccess={this.onSuccess}
 						onError={this.onError}

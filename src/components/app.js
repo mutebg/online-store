@@ -6,6 +6,8 @@ import Home from '../routes/home';
 import Product from '../routes/product';
 import Basket from '../routes/basket';
 import Order from '../routes/order';
+import AdminOrders from '../routes/admin/orders';
+
 // import Home from 'async!../routes/home';
 // import Profile from 'async!../routes/profile';
 
@@ -29,6 +31,7 @@ export default class App extends Component {
 						<Product path="/product/:id" />
 						<Basket path="/basket" />
 						<Order path="/order/:id/:email" />
+						<AdminOrders path="/admin/orders" />
 					</Router>
 				</div>
 			</div>

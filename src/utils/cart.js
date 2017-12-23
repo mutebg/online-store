@@ -1,5 +1,7 @@
 import { get, post } from './api';
 
+export const getBasketTotal = basketItems => basketItems.reduce((prev, next) => prev + next.price, 0);
+
 export const buildBasketList = (products, basketItems) => {
 	const productsIds = products.reduce((prev, next) => {
 		prev[next.id] = next;
@@ -30,5 +32,3 @@ export const makeTransaction = (paymentMethodNonce, amount, items, userData) =>
 		amount,
 		userData
 	});
-
-export const loadOrder = (id, email) => get('/order/' + id + '?email=' + email);

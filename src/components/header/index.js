@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 import { connect } from 'unistore/preact';
 import actions from '../../actions';
-import { buildBasketList } from '../../utils/cart';
+import { getBasketTotal } from '../../utils/cart';
 import { formatCurrency } from '../../utils/format';
 
 import './style';
@@ -16,8 +16,8 @@ export class Header extends Component {
 		this.props.loadProducts();
 	}
 
-	render({ basket, products }, { showBasket }) {
-		const { total } = buildBasketList(products, basket);
+	render({ basket }, { showBasket }) {
+		const total = getBasketTotal(basket);
 
 		return (
 			<header class="header">
