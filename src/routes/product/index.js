@@ -69,7 +69,7 @@ export class Product extends Component {
 					<form onSubmit={this.onSubmit} class="DetailsForm showIn">
 						<PropsForm data={props} />
 						<CustomFields {...custom} />
-						<button class="Details__buy">Buy</button>
+						<button class="btn Details__buy">Buy</button>
 					</form>
 				</div>
 			);

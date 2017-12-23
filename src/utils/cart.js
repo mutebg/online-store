@@ -31,3 +31,4 @@ export const makeTransaction = (paymentMethodNonce, amount, items, userData) =>
 		userData
 	});
 
+export const loadOrder = (id, email) => get('/order/' + id + '?email=' + email);

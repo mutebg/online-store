@@ -88,7 +88,7 @@ export default class CheckOut extends Component {
 
 				<div id="dropin-container" />
 				{message !== 'success' && (
-					<button id="submit-button" disabled={isLoading}>
+					<button class="btn" id="submit-button" disabled={isLoading}>
 						PAY
 					</button>
 				)}

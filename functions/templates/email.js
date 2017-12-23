@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const mapProducts = products =>
-	products.map(({ id, name, price, ...rest }) => {
-		const options = _.map(rest, (val, key) => `${key} : ${val}`);
+	products.map(({ id, name, price }) => {
+		const options = _.map({}, (val, key) => `${key} : ${val}`);
 		return `<p>${name}  ${options ? options : ''} - ${price}</p>`;
 	});
 

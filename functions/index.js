@@ -2,7 +2,6 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const express = require('express');
 const cors = require('cors');
-const _ = require('lodash');
 const products = require('./products.json');
 const emailTemplates = require('./templates/email');
 
@@ -39,9 +38,7 @@ admin.initializeApp(functions.config().firebase);
 app.use(cors());
 app.enable('trust proxy');
 
-app.get('/products', (req, res) => {
-	res.json(products);
-});
+app.get('/products', (req, res) => res.json(products));
 
 app.get('/client_token', (req, res) => {
 	gateway.clientToken.generate({}, (err, response) => {
@@ -82,6 +79,33 @@ app.post('/checkout', (req, res) => {
 		}
 	);
 });
+
+app.get('/order/:id', (req, res) =>
+	admin
+		.firestore()
+		.collection('orders')
+		.doc(req.params.id)
+		.get()
+		.then(doc => {
+			if (!doc.exists) {
+				res.status(500).send('No such document!');
+			}
+			else {
+				const docData = doc.data();
+				//res.send(docData);
+
+				if (docData.user.email === req.query.email) {
+					res.send(docData);
+				}
+				else {
+					res.status(500).send('Error getting document');
+				}
+			}
+		})
+		.catch(err => {
+			res.status(500).send('Error getting document');
+		})
+);
 
 app.use('/econt', require('./econt'));
 

@@ -1,28 +1,14 @@
-# {{ name }}
-
-## CLI Commands
-
-```bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# test the production build locally
-npm run serve
-```
-
-For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
-
-Payment request:
-https://developers.braintreepayments.com/guides/payment-request/setup-and-integration/javascript/v3
-
-Inspiration:
-https://tympanus.net/Development/CheckoutConcepts/index.html
-https://tympanus.net/Development/ElasticCircleSlideshow/
-https://tympanus.net/Development/ExpandingGridItemAnimation/
-https://tympanus.net/Blueprints/ProductComparison/
+TODO:
+Page title
+Page configuration
+Share code between backend and frontend
+Better email templates
+Admin area
+Add shipping to basket and total
+Translations
+Style user order page
+Include user order page link in email
+Success message ( maybe redirect to user order page )
+Animation when user click on Add to basket button and on the basket in top bar
+Icons
+Carousel in product page
