@@ -2,8 +2,8 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 
 import './style';
-import { get } from '../../../utils/api';
 import { formatProduct } from '../../../utils/order';
+import reqAuth from '../reqAuth';
 
 export class Orders extends Component {
 	state = {
@@ -11,12 +11,21 @@ export class Orders extends Component {
 	};
 
 	componentDidMount() {
-		get('/orders')
-			.then(({ orders }) => {
-				this.setState({ orders });
-			})
-			.catch(error => {
-				// TOOD
+		this.props.firebase
+			.firestore()
+			.collection('orders')
+			.get()
+			.then(querySnapshot => {
+				const orders = [];
+				querySnapshot.forEach(doc => {
+					orders.push({
+						id: doc.id,
+						...doc.data()
+					});
+				});
+				this.setState({
+					orders
+				});
 			});
 	}
 
@@ -41,7 +50,7 @@ export class Orders extends Component {
 	}
 }
 
-export default Orders;
+export default reqAuth(Orders);
 
 const OrderRow = ({ id, products, amount, user }) => (
 	<tr>

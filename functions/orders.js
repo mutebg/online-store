@@ -5,20 +5,20 @@ const admin = require('firebase-admin');
 const db = admin.firestore().collection('orders');
 
 // return all orders
-router.get('/', (req, res) =>
-	db
-		.limit(100)
-		.get()
-		.then(snapshot => {
-			const data = [];
-			snapshot.forEach(doc => {
-				data.push(Object.assign({ id: doc.id }, doc.data()));
-			});
-			return res.send({
-				orders: data
-			});
-		})
-);
+// router.get('/', (req, res) =>
+// 	db
+// 		.limit(100)
+// 		.get()
+// 		.then(snapshot => {
+// 			const data = [];
+// 			snapshot.forEach(doc => {
+// 				data.push(Object.assign({ id: doc.id }, doc.data()));
+// 			});
+// 			return res.send({
+// 				orders: data
+// 			});
+// 		})
+// );
 
 // return single order
 router.get('/:id', (req, res) =>
@@ -41,8 +41,8 @@ router.get('/:id', (req, res) =>
 );
 
 // update an order
-router.post('/:id', (req, res) => {
-	//TODO
-});
+// router.post('/:id', (req, res) => {
+// 	//TODO
+// });
 
 module.exports = router;
