@@ -50,12 +50,14 @@ export default class CheckOut extends Component {
 										});
 
 										if (result.success) {
+											this.props.onSuccess(result.order);
 											this.setState({
 												isLoading: false,
 												message: 'success'
 											});
 										}
 										else {
+											this.props.onError(result);
 											this.setState({
 												isLoading: false,
 												message: 'error'
@@ -84,7 +86,7 @@ export default class CheckOut extends Component {
 
 		return (
 			<div class="CheckOut">
-				{messageEl}
+				{/* {messageEl} */}
 
 				<div id="dropin-container" />
 				{message !== 'success' && (

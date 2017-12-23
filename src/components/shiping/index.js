@@ -1,23 +1,31 @@
 import { h, Component } from 'preact';
 import { loadOfficesCities, loadOfficesInCity } from '../../utils/shiping';
+import { formatCurrency } from '../../utils/format';
+import './style.scss';
 
 export default class Shiping extends Component {
 	state = {
-		isLoading: true,
 		message: '',
 		shippingMethod: 1
 	};
 
-	methods = [
-		{ id: 1, name: 'Pickup office', price: 4 },
-		{ id: 2, name: 'Door', price: 6 }
-	];
-
 	changeMethod = shippingMethod => {
-		this.setState({ shippingMethod });
+		this.props.onChange(shippingMethod);
 	};
 
-	render(props, { isLoading, shippingMethod }) {
+	render({ selected, methods }) {
+		const MethodForm = methods.reduce((prev, next) => {
+			if (next.id === selected) {
+				switch (next.type) {
+					case 'address':
+						return <Address />;
+					case 'office':
+						return <Office />;
+				}
+			}
+			return prev;
+		}, <Address />);
+
 		return (
 			<div class="Shiping">
 				<div class="form-row">
@@ -52,21 +60,29 @@ export default class Shiping extends Component {
 						autocomplete="tel"
 					/>
 				</div>
-				{this.methods.map(({ id, name }) => (
-					<div>
-						<label for={`delivery_${id}`}>{name}</label>
+				<div class="shipping-tabs">
+					{methods.map(({ id, name, price }) => [
+						<label
+							for={`delivery_${id}`}
+							class={
+								'shipping-tabs__item ' +
+								(id === selected ? 'shipping-tabs__item--selected' : '')
+							}
+						>
+							{name}: {formatCurrency(price)}
+						</label>,
 						<input
-							checked={id === shippingMethod}
+							checked={id === selected}
 							name="delivery"
 							type="radio"
 							id={`delivery_${id}`}
 							value={id}
 							onClick={() => this.changeMethod(id)}
 						/>
-					</div>
-				))}
+					])}
+				</div>
 
-				{shippingMethod === 1 ? <Office /> : <Address />}
+				{MethodForm}
 			</div>
 		);
 	}

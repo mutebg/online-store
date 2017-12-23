@@ -4,21 +4,38 @@ import actions from '../../actions';
 import { getBasketTotal } from '../../utils/cart';
 import CheckOut from '../../components/checkout';
 import Shiping from '../../components/shiping';
+import { route } from 'preact-router';
 
 import BasketList from '../../components/basket';
 import './style';
 
 export class Basket extends Component {
-	onSuccess = () => {
-		console.log('is odne');
+	state = {
+		shippingMethod: 1
 	};
 
-	onError = () => {
-		console.log('error');
+	shippingMethods = [
+		{ id: 1, name: 'Pickup office', price: 4, type: 'office' },
+		{ id: 2, name: 'Door', price: 6, type: 'address' }
+	];
+
+	onShippingChange = id => {
+		this.setState({
+			shippingMethod: id
+		});
 	};
 
-	render({ basket, products, removeBasketItem }) {
-		const total = getBasketTotal(basket);
+	onSuccess = ({ id, user }) => {
+		route('order/' + id + '/' + user.email + '?status=new_order');
+	};
+
+	onError = () => {};
+
+	render({ basket, products, removeBasketItem }, { shippingMethod }) {
+		const currentShipping = this.shippingMethods.filter(
+			({ id }) => id === shippingMethod
+		);
+		const total = getBasketTotal(basket.concat(currentShipping));
 
 		if (basket.length === 0) {
 			return <p>your basket is empty</p>;
@@ -29,19 +46,23 @@ export class Basket extends Component {
 				<h1>Your Cart</h1>
 				<div class="BasketPage__box">
 					<BasketList
-						items={basket}
+						items={[].concat(basket, currentShipping)}
 						total={total}
 						onRemove={removeBasketItem}
 					/>
 				</div>
 				<h1>Shipping</h1>
 				<div class="BasketPage__box">
-					<Shiping />
+					<Shiping
+						methods={this.shippingMethods}
+						selected={shippingMethod}
+						onChange={this.onShippingChange}
+					/>
 				</div>
 				<h1>Payment</h1>
 				<div class="BasketPage__box">
 					<CheckOut
-						items={basket}
+						items={[].concat(basket, currentShipping)}
 						total={total}
 						onSuccess={this.onSuccess}
 						onError={this.onError}

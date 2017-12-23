@@ -3,6 +3,7 @@ import { connect } from 'unistore/preact';
 import './style';
 import actions from '../../actions';
 import { formatCurrency } from '../../utils/format';
+import { route } from 'preact-router';
 
 const CustomFields = ({ number, label, length }) => {
 	const list = [];
@@ -15,6 +16,7 @@ const CustomFields = ({ number, label, length }) => {
 					class="form-row__field"
 					type="text"
 					maxLength={length}
+					required
 				/>
 			</div>
 		);
@@ -55,6 +57,7 @@ export class Product extends Component {
 			item[v[0]] = v[1];
 		});
 		this.props.addBasketItem(item);
+		route('basket/');
 	};
 
 	render({ products, id }) {

@@ -2,17 +2,17 @@ import { formatCurrency } from '../../utils/format';
 import { formatProduct } from '../../utils/order';
 import './style';
 
-const BasketList = ({ items, total, onRemove }) => (
+const BasketList = ({ items, total, onRemove, shiping }) => (
 	<table class="BasketTablet" border={1}>
 		{items.map((item, index) => {
-			const { image, name, price, custom } = formatProduct(item);
+			const { image, name, price, custom, type } = formatProduct(item);
 			return (
 				<tr>
 					<td>
 						<img src={image} width={100} />
 					</td>
 					<td>
-						{name}
+						{type ? 'Delivery:' + name : name}
 						{custom.map(({ key, value }) => (
 							<span>
 								<br />
@@ -22,7 +22,13 @@ const BasketList = ({ items, total, onRemove }) => (
 					</td>
 					<td>{formatCurrency(price)}</td>
 					<td>
-						<button onClick={() => onRemove(index)}>remove</button>
+						{!type ? (
+							<button type="button" onClick={() => onRemove(index)}>
+								remove
+							</button>
+						) : (
+							''
+						)}
 					</td>
 				</tr>
 			);

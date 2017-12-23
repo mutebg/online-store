@@ -67,9 +67,15 @@ app.post('/checkout', (req, res) => {
 		},
 		(error, result) => {
 			if (result) {
-				saveProduct(amount, user, items).then(() => {
+				saveProduct(amount, user, items).then(ref => {
 					res.send({
-						success: true
+						success: true,
+						order: {
+							amount,
+							user,
+							products: items,
+							id: ref.id
+						}
 					});
 				});
 			}
@@ -132,20 +138,6 @@ function sendEmail({ from, to, subject, text }) {
 }
 
 function saveProduct(amount, user, products) {
-	// const flatProductList = items.map(item =>
-	// 	item.user.reduce(
-	// 		(prev, next) => {
-	// 			prev[next[0]] = next[1];
-	// 			return prev;
-	// 		},
-	// 		{
-	// 			id: item.id,
-	// 			name: item.name,
-	// 			price: item.price
-	// 		}
-	// 	)
-	// );
-
 	return admin
 		.firestore()
 		.collection('orders')

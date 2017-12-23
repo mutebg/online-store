@@ -1,11 +1,11 @@
 TODO:
 
+* Add shipping to basket and total
 * Page title
 * Page configuration
 * Share code between backend and frontend
 * Better email templates
-* Admin area
-* Add shipping to basket and total
+* Add update order from admin
 * Style user order page
 * Include user order page link in email
 * Success message ( maybe redirect to user order page )
@@ -18,3 +18,4 @@ Nice to have:
 
 * Product administration
 * Translations ( BG / EN )
+* Discounts for qtty

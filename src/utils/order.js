@@ -1,7 +1,7 @@
 import { get } from './api';
 
 export const formatProduct = product => {
-	const fields = ['id', 'name', 'price', 'image'];
+	const fields = ['id', 'name', 'price', 'image', 'type'];
 	const formatedProduct = { custom: [], id: 0, price: 0, name: '', image: '' };
 	for (const [key, value] of Object.entries(product)) {
 		if (fields.indexOf(key) >= 0) {
