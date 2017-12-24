@@ -1,4 +1,4 @@
-const { formatProduct, formatCurrency } = require('../../shared/helpers');
+const { formatProduct, formatCurrency } = require('../helpers');
 
 const productList = products =>
 	products
@@ -17,10 +17,11 @@ const productList = products =>
 		})
 		.join('');
 
-exports.customer = function({ user, orderId, products, amount }) {
+exports.customer = function({ user, orderId, products, amount }, { domain }) {
 	return `
     Hello ${user.name} <br />
     Your order id is <b>${orderId}</b><br />
+		<a href="${domain}order/${orderId}/${user.email}">View to your order</a>
 
     Products you ordered:<br />
     ${productList(products)}
@@ -28,11 +29,13 @@ exports.customer = function({ user, orderId, products, amount }) {
   `;
 };
 
-exports.admin = function({ user, orderId, products, amount }) {
+exports.admin = function({ user, orderId, products, amount }, { domain }) {
 	return `
     You have a new order:<br />
 		amount: ${amount}<br />
 		id: ${orderId}<br />
+		<a href="${domain}admin/order/${orderId}">View order</a>
+
 
   `;
 };

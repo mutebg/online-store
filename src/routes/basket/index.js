@@ -26,7 +26,8 @@ export class Basket extends Component {
 	};
 
 	onSuccess = ({ id, user }) => {
-		route('order/' + id + '/' + user.email + '?status=new_order');
+		this.props.clearBasket();
+		route('/order/' + id + '/' + user.email + '?status=new_order');
 	};
 
 	onError = () => {};

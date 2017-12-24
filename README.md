@@ -1,24 +1,29 @@
 TODO:
 
-* Add shipping to basket and total
+* Add security rulez to firestore
 * Responsive tables
-* Page title
-* Page configuration
-* Share code between backend and frontend
 * Better email templates
-* Add update order from admin
+* Add option to update order from administration
 * Style user order page
-* Include user order page link in email
-* Success message ( maybe redirect to user order page )
 * Animation when user click on Add to basket button and on the basket in top bar
 * Icons
 * Carousel in product page
 * Add date and status to order
 * Manifest icons
 * Brand colors
+* Responsive images and script which resize them
+* Cache econt api data
 
 Nice to have:
 
 * Product administration
 * Translations ( BG / EN )
 * Discounts for qtty
+
+Before go live:
+
+* Transfer domain
+* braintree account
+* Add paypal in braintree
+* MailGun + Domain
+* Econt real account + Switch API

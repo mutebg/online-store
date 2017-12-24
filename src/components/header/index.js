@@ -3,7 +3,7 @@ import { Link } from 'preact-router/match';
 import { connect } from 'unistore/preact';
 import actions from '../../actions';
 import { getBasketTotal } from '../../utils/cart';
-import { formatCurrency } from '../../../shared/helpers';
+import { formatCurrency } from '../../../functions/helpers';
 
 import './style';
 

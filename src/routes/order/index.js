@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import './style';
-import { formatCurrency, formatProduct } from '../../../shared/helpers';
+import { formatCurrency, formatProduct } from '../../../functions/helpers';
 
 import { loadOrder } from '../../utils/order';
 

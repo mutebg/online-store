@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import { loadOfficesCities, loadOfficesInCity } from '../../utils/shiping';
-import { formatCurrency } from '../../../shared/helpers';
+import { formatCurrency } from '../../../functions/helpers';
 
 import './style.scss';
 

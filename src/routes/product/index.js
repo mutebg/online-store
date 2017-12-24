@@ -1,44 +1,11 @@
 import { h, Component } from 'preact';
 import { connect } from 'unistore/preact';
+import { route } from 'preact-router';
 import './style';
 import actions from '../../actions';
-import { formatCurrency } from '../../../shared/helpers';
-
-import { route } from 'preact-router';
-
-const CustomFields = ({ number, label, length }) => {
-	const list = [];
-	for (let i = 1; i <= number; i++) {
-		list.push(
-			<div class="form-row">
-				<label class="form-row__label">{label + ' ' + i}</label>
-				<input
-					name={label + i}
-					class="form-row__field"
-					type="text"
-					maxLength={length}
-					required
-				/>
-			</div>
-		);
-	}
-	return <div class="Custom">{list}</div>;
-};
-
-const PropsForm = ({ data }) => (
-	<div class="Props">
-		{data.map(({ id, label, values }) => (
-			<div class="form-row">
-				<lable id={id} class="form-row__label">
-					{label}
-				</lable>
-				<select name={label} class="form-row__field">
-					{values.map(value => <option value={value}>{value}</option>)}
-				</select>
-			</div>
-		))}
-	</div>
-);
+import { formatCurrency } from '../../../functions/helpers';
+import CustomFields from './CustomFields';
+import PropsForm from './PropsForm';
 
 export class Product extends Component {
 	onSubmit = e => {
@@ -58,7 +25,7 @@ export class Product extends Component {
 			item[v[0]] = v[1];
 		});
 		this.props.addBasketItem(item);
-		route('basket/');
+		route('/basket/');
 	};
 
 	render({ products, id }) {
@@ -68,16 +35,19 @@ export class Product extends Component {
 			const { name, description, price, custom, images, props } = product;
 			return (
 				<div class="Details">
-					{images.map(img => <img src={img} class="Details__image showIn" />)}
 					<h1 class="Details__name showIn">{name}</h1>
 					<p class="Details__price showIn">{formatCurrency(price)}</p>
 					<p class="Details__description showIn">{description}</p>
 
-					<form onSubmit={this.onSubmit} class="DetailsForm showIn">
+					<form onSubmit={this.onSubmit} class="DetailsForm tile showIn">
 						<PropsForm data={props} />
 						<CustomFields {...custom} />
 						<button class="btn Details__buy">Buy</button>
 					</form>
+
+					{images.map(img => (
+						<img src={img} class="Details__image tile showIn" />
+					))}
 				</div>
 			);
 		}

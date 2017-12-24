@@ -5,11 +5,6 @@
 
 	&__image {
 		width: 100%;
-		overflow: hidden;
-		//max-width: 100%;
-		margin-bottom: 2em;
-		border-radius: 4px;
-		box-shadow: 0 2px 10px 0px #ccc;
 	}
 
 	&__name,
@@ -41,9 +36,7 @@
 
 .DetailsForm {
 	text-align: left;
-	background: #fff;
-	border-radius: 4px 4px 0 0;
 	padding: 2em;
 	animation-delay: 0.4s;
-	box-shadow: 0 2px 10px 0px #ccc;
+	margin-bottom: 2em;
 }

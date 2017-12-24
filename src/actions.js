@@ -11,7 +11,10 @@ let actions = store => ({
 		getProducts().then(products => {
 			store.setState({ products });
 		});
-	}
+	},
+	clearBasket: state => ({
+		basket: []
+	})
 });
 
 export default actions;
