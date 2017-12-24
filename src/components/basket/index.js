@@ -1,5 +1,4 @@
-import { formatCurrency } from '../../utils/format';
-import { formatProduct } from '../../utils/order';
+import { formatCurrency, formatProduct } from '../../../shared/helpers';
 import './style';
 
 const BasketList = ({ items, total, onRemove, shiping }) => (

@@ -1,7 +1,8 @@
 import { h, Component } from 'preact';
 import './style';
-import { formatCurrency } from '../../utils/format';
-import { formatProduct, loadOrder } from '../../utils/order';
+import { formatCurrency, formatProduct } from '../../../shared/helpers';
+
+import { loadOrder } from '../../utils/order';
 
 export class Order extends Component {
 	state = {

@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 
 import './style';
-import { formatProduct } from '../../../utils/order';
+import { formatProduct } from '../../../../shared/helpers';
 import reqAuth from '../reqAuth';
 
 export class Orders extends Component {

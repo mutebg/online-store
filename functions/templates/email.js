@@ -1,9 +1,21 @@
-const _ = require('lodash');
-const mapProducts = products =>
-	products.map(({ id, name, price }) => {
-		const options = _.map({}, (val, key) => `${key} : ${val}`);
-		return `<p>${name}  ${options ? options : ''} - ${price}</p>`;
-	});
+const { formatProduct, formatCurrency } = require('../../shared/helpers');
+
+const productList = products =>
+	products
+		.map(p => {
+			const { price, name, custom } = formatProduct(p);
+			return `<p>
+				${name} for ${formatCurrency(price)}
+				<br />
+				${custom
+		.map(
+			({ key, value }) => `
+						${key} : ${value} <br />`
+		)
+		.join('')}
+			</p>`;
+		})
+		.join('');
 
 exports.customer = function({ user, orderId, products, amount }) {
 	return `
@@ -11,7 +23,7 @@ exports.customer = function({ user, orderId, products, amount }) {
     Your order id is <b>${orderId}</b><br />
 
     Products you ordered:<br />
-    ${mapProducts(products)}
+    ${productList(products)}
     Total amount: ${amount}
   `;
 };

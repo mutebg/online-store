@@ -1,71 +1,31 @@
-[debug] [2017-12-22T18:03:10.966Z] ----------------------------------------------------------------------
-[debug] [2017-12-22T18:03:10.968Z] Command:       /usr/local/Cellar/node/7.4.0/bin/node /usr/local/bin/firebase serve --only functions
-[debug] [2017-12-22T18:03:10.968Z] CLI Version:   3.16.0
-[debug] [2017-12-22T18:03:10.968Z] Platform:      darwin
-[debug] [2017-12-22T18:03:10.968Z] Node Version:  v7.4.0
-[debug] [2017-12-22T18:03:10.969Z] Time:          Fri Dec 22 2017 19:03:10 GMT+0100 (CET)
-[debug] [2017-12-22T18:03:10.969Z] ----------------------------------------------------------------------
+[debug] [2017-12-24T08:15:27.482Z] ----------------------------------------------------------------------
+[debug] [2017-12-24T08:15:27.485Z] Command:       /usr/local/Cellar/node/7.4.0/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2017-12-24T08:15:27.485Z] CLI Version:   3.16.0
+[debug] [2017-12-24T08:15:27.485Z] Platform:      darwin
+[debug] [2017-12-24T08:15:27.485Z] Node Version:  v7.4.0
+[debug] [2017-12-24T08:15:27.486Z] Time:          Sun Dec 24 2017 09:15:27 GMT+0100 (CET)
+[debug] [2017-12-24T08:15:27.486Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-12-22T18:03:10.980Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-12-22T18:03:10.980Z] > authorizing via signed-in user
-[debug] [2017-12-22T18:03:10.981Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/onlinestore-2e046  
+[debug] [2017-12-24T08:15:27.497Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-24T08:15:27.497Z] > authorizing via signed-in user
+[debug] [2017-12-24T08:15:27.499Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/onlinestore-2e046  
   
- Fri Dec 22 2017 19:03:10 GMT+0100 (CET)
-[debug] [2017-12-22T18:03:11.751Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-22T18:03:11.752Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/onlinestore-2e046/tokens  
+ Sun Dec 24 2017 09:15:27 GMT+0100 (CET)
+[debug] [2017-12-24T08:15:28.626Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-24T08:15:28.627Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/onlinestore-2e046/tokens  
   
- Fri Dec 22 2017 19:03:11 GMT+0100 (CET)
-[debug] [2017-12-22T18:03:12.815Z] <<< HTTP RESPONSE 200
+ Sun Dec 24 2017 09:15:28 GMT+0100 (CET)
+[debug] [2017-12-24T08:15:29.542Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/stoyan/projects/online-store-a'...
 [info] 
 [info] i  functions: Preparing to emulate functions.
-[debug] [2017-12-22T18:03:13.244Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/onlinestore-2e046  
+[debug] [2017-12-24T08:15:29.973Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/onlinestore-2e046  
   
- Fri Dec 22 2017 19:03:13 GMT+0100 (CET)
-[debug] [2017-12-22T18:03:13.244Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/onlinestore-2e046/apiKeys  
+ Sun Dec 24 2017 09:15:29 GMT+0100 (CET)
+[debug] [2017-12-24T08:15:29.974Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/onlinestore-2e046/apiKeys  
   
- Fri Dec 22 2017 19:03:13 GMT+0100 (CET)
-[debug] [2017-12-22T18:03:14.342Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-22T18:03:14.345Z] <<< HTTP RESPONSE 200
-[info] ✔  functions: api: http://localhost:5000/onlinestore-2e046/us-central1/api
-[debug] [2017-12-23T13:09:24.935Z] ----------------------------------------------------------------------
-[debug] [2017-12-23T13:09:24.937Z] Command:       /usr/local/Cellar/node/7.4.0/bin/node /usr/local/bin/firebase serve --only functions
-[debug] [2017-12-23T13:09:24.938Z] CLI Version:   3.16.0
-[debug] [2017-12-23T13:09:24.938Z] Platform:      darwin
-[debug] [2017-12-23T13:09:24.938Z] Node Version:  v7.4.0
-[debug] [2017-12-23T13:09:24.938Z] Time:          Sat Dec 23 2017 14:09:24 GMT+0100 (CET)
-[debug] [2017-12-23T13:09:24.938Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2017-12-23T13:09:24.955Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-12-23T13:09:24.955Z] > authorizing via signed-in user
-[debug] [2017-12-23T13:09:24.956Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2017-12-23T13:09:24.957Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- { refresh_token: '1/Rq8tDs_rZz2Pj10BOGDZMdEhfrzR73dPW3XWEAwZ5BM',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Sat Dec 23 2017 14:09:24 GMT+0100 (CET)
-[debug] [2017-12-23T13:09:25.166Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-23T13:09:25.168Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/onlinestore-2e046  
-  
- Sat Dec 23 2017 14:09:25 GMT+0100 (CET)
-[debug] [2017-12-23T13:09:26.034Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-23T13:09:26.035Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/onlinestore-2e046/tokens  
-  
- Sat Dec 23 2017 14:09:26 GMT+0100 (CET)
-[debug] [2017-12-23T13:09:27.293Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Serving from '/Users/stoyan/projects/online-store-a'...
-[info] 
-[info] i  functions: Preparing to emulate functions.
-[debug] [2017-12-23T13:09:28.052Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/onlinestore-2e046  
-  
- Sat Dec 23 2017 14:09:28 GMT+0100 (CET)
-[debug] [2017-12-23T13:09:28.052Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/onlinestore-2e046/apiKeys  
-  
- Sat Dec 23 2017 14:09:28 GMT+0100 (CET)
-[debug] [2017-12-23T13:09:28.886Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-23T13:09:28.995Z] <<< HTTP RESPONSE 200
+ Sun Dec 24 2017 09:15:29 GMT+0100 (CET)
+[debug] [2017-12-24T08:15:31.077Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-24T08:15:31.080Z] <<< HTTP RESPONSE 200
 [info] ✔  functions: api: http://localhost:5000/onlinestore-2e046/us-central1/api

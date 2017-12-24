@@ -1,6 +1,7 @@
 TODO:
 
 * Add shipping to basket and total
+* Responsive tables
 * Page title
 * Page configuration
 * Share code between backend and frontend
@@ -13,6 +14,8 @@ TODO:
 * Icons
 * Carousel in product page
 * Add date and status to order
+* Manifest icons
+* Brand colors
 
 Nice to have:
 

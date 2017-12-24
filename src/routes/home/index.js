@@ -5,7 +5,8 @@ import './style';
 
 import actions from '../../actions';
 
-import { formatCurrency } from '../../utils/format';
+import { formatCurrency } from '../../../shared/helpers';
+
 import { Link } from 'preact-router/match';
 
 export class Home extends Component {

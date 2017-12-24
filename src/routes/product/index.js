@@ -2,7 +2,8 @@ import { h, Component } from 'preact';
 import { connect } from 'unistore/preact';
 import './style';
 import actions from '../../actions';
-import { formatCurrency } from '../../utils/format';
+import { formatCurrency } from '../../../shared/helpers';
+
 import { route } from 'preact-router';
 
 const CustomFields = ({ number, label, length }) => {
