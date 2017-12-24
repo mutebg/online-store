@@ -19,6 +19,7 @@ Nice to have:
 * Product administration
 * Translations ( BG / EN )
 * Discounts for qtty
+* Econt create shipping order
 
 Before go live:
 
