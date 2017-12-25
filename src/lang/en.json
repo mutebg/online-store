@@ -1,0 +1,29 @@
+{
+	"buy": "Buy",
+	"buy_header": {
+		"one": "Buy 1 product for {{total}}",
+		"many": "Buy {{length}}  products for {{total}}"
+	},
+	"empty_basket": "Your basket is empty",
+	"your_cart": "Your cart",
+	"shipping": "Shipping",
+	"shipping_to_office": "Pickup office",
+	"shipping_to_address": "Door",
+	"payment": "Payment",
+	"remove": "Remove",
+	"name": "Name",
+	"name_placeholder": "Full name",
+	"email": "Email",
+	"email_placeholder": "name@example.com",
+	"phone": "Phone",
+	"phone_placeholder": "+1 234 567 890",
+	"city": "City",
+	"city_placeholder": "Amsterdam",
+	"post_code": "Post code",
+	"post_code_placeholder": "1213SZ",
+	"street": "Street",
+	"street_placeholder": "Jacob van Arteveldestraat 19",
+	"other": "Other",
+	"finish_order": "Finish order",
+	"total": "Total"
+}

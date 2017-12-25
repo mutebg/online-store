@@ -1,3 +1,4 @@
+import { Text } from 'preact-i18n';
 import { h, Component } from 'preact';
 import { getToken, makeTransaction } from '../../utils/cart';
 let dropin = require('braintree-web-drop-in');
@@ -91,7 +92,7 @@ export default class CheckOut extends Component {
 				<div id="dropin-container" />
 				{message !== 'success' && (
 					<button class="btn" id="submit-button" disabled={isLoading}>
-						PAY
+						<Text id="finish_order" />
 					</button>
 				)}
 			</div>

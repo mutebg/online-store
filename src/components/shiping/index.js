@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import { Text, Localizer } from 'preact-i18n';
 import { loadOfficesCities, loadOfficesInCity } from '../../utils/shiping';
 import { formatCurrency } from '../../../functions/helpers';
 
@@ -30,36 +31,48 @@ export default class Shiping extends Component {
 		return (
 			<div class="Shiping">
 				<div class="form-row">
-					<label class="form-row__label">Name</label>
-					<input
-						class="form-row__field"
-						name="name"
-						placeholder="Full name"
-						autocomplete="name"
-						required
-					/>
+					<label class="form-row__label">
+						<Text id="name" />
+					</label>
+					<Localizer>
+						<input
+							class="form-row__field"
+							name="name"
+							placeholder={<Text id="name_placeholder" />}
+							autocomplete="name"
+							required
+						/>
+					</Localizer>
 				</div>
 				<div class="form-row">
-					<label class="form-row__label">E-mail</label>
-					<input
-						class="form-row__field"
-						name="email"
-						type="email"
-						placeholder="name@example.com"
-						required
-						autocomplete="email"
-					/>
+					<label class="form-row__label">
+						<Text id="email" />
+					</label>
+					<Localizer>
+						<input
+							class="form-row__field"
+							name="email"
+							type="email"
+							placeholder={<Text id="email_placeholder" />}
+							required
+							autocomplete="email"
+						/>
+					</Localizer>
 				</div>
 				<div class="form-row">
-					<label class="form-row__label">Phone</label>
-					<input
-						class="form-row__field"
-						name="phone"
-						type="tel"
-						placeholder="+1-650-450-1212"
-						required
-						autocomplete="tel"
-					/>
+					<label class="form-row__label">
+						<Text id="phone" />
+					</label>
+					<Localizer>
+						<input
+							class="form-row__field"
+							name="phone"
+							type="tel"
+							placeholder={<Text id="phone_placeholder" />}
+							required
+							autocomplete="tel"
+						/>
+					</Localizer>
 				</div>
 				<div class="shipping-tabs">
 					{methods.map(({ id, name, price }) => [
@@ -112,7 +125,7 @@ class Office extends Component {
 			<div>
 				<div class="form-row">
 					<label class="form-row__label" for="select_city">
-						City
+						<Text id="city" />
 					</label>
 					<select
 						id="select_city"
@@ -127,7 +140,7 @@ class Office extends Component {
 				{offices.length > 0 && (
 					<div class="form-row">
 						<label class="form-row__label" for="select_office">
-							Office
+							<Text id="office" />
 						</label>
 						<select
 							required
@@ -154,47 +167,54 @@ class Address extends Component {
 			<div>
 				<div class="form-row">
 					<label class="form-row__label" for="post_code">
-						Post code:
+						<Text id="post_code" />
 					</label>
-					<input
-						class="form-row__field"
-						type="text"
-						name="post_code"
-						required
-						placeholder="1001"
-						autocomplete="shipping postal-code"
-					/>
+					<Localizer>
+						<input
+							class="form-row__field"
+							type="text"
+							name="post_code"
+							required
+							placeholder={<Text id="post_code_placeholder" />}
+							autocomplete="shipping postal-code"
+						/>
+					</Localizer>
 				</div>
 				<div class="form-row">
 					<label class="form-row__label" for="city">
-						City
+						<Text id="city" />
 					</label>
-					<input
-						class="form-row__field"
-						type="text"
-						id="city"
-						name="city"
-						placeholder="Sofia"
-						required
-						autocomplete="shipping locality"
-					/>
+					<Localizer>
+						<input
+							class="form-row__field"
+							type="text"
+							id="city"
+							name="city"
+							placeholder={<Text id="city_placeholder" />}
+							required
+							autocomplete="shipping locality"
+						/>
+					</Localizer>
 				</div>
 				<div class="form-row">
 					<label class="form-row__label" for="street">
-						Street:
+						<Text id="street" />
 					</label>
-					<input
-						class="form-row__field"
-						type="text"
-						id="street"
-						name="street"
-						required
-						autocomplete="shipping street-address"
-					/>
+					<Localizer>
+						<input
+							class="form-row__field"
+							type="text"
+							id="street"
+							name="street"
+							required
+							placeholder={<Text id="street_placeholder" />}
+							autocomplete="shipping street-address"
+						/>
+					</Localizer>
 				</div>
 				<div class="form-row">
 					<label class="form-row__label" for="other">
-						Other:
+						<Text id="other" />
 					</label>
 					<input type="text" id="other" name="other" class="form-row__field" />
 				</div>

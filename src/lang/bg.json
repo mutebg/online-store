@@ -1,0 +1,29 @@
+{
+	"buy": "Купи",
+	"buy_header": {
+		"one": "Купи 1 продукт за {{total}}",
+		"many": "Купи {{length}}  продукта за {{total}}"
+	},
+	"empty_basket": "Количката ти е празна",
+	"your_cart": "Количка",
+	"shipping": "Доставка",
+	"shipping_to_office": "До офис на Еконт",
+	"shipping_to_address": "До адрес",
+	"payment": "Плащане",
+	"remove": "изтрий",
+	"name": "Име",
+	"name_placeholder": "Вашите имена",
+	"email": "Email",
+	"email_placeholder": "name@example.com",
+	"phone": "Телефон",
+	"phone_placeholder": "088 777 888 22",
+	"city": "Град",
+	"city_placeholder": "София",
+	"post_code": "Пощенски код",
+	"post_code_placeholder": "1000",
+	"street": "Улица и номер",
+	"street_placeholder": "Славянска 2",
+	"other": "Друго",
+	"finish_order": "Завърши поръчката",
+	"total": "Общо"
+}

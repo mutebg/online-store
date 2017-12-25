@@ -1,5 +1,7 @@
 import './style';
 import App from './components/app';
+import { IntlProvider } from 'preact-i18n';
+import definition from './lang/bg.json';
 
 if (!window.requestIdleCallback) {
 	window.requestIdleCallback = callback => setTimeout(callback, 50);
@@ -18,6 +20,8 @@ store.subscribe(wholeStore => {
 
 export default () => (
 	<Provider store={store}>
-		<App />
+		<IntlProvider definition={definition}>
+			<App />
+		</IntlProvider>
 	</Provider>
 );

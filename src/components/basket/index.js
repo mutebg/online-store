@@ -1,3 +1,4 @@
+import { Text } from 'preact-i18n';
 import { formatCurrency, formatProduct } from '../../../functions/helpers';
 import './style';
 
@@ -11,7 +12,13 @@ const BasketList = ({ items, total, onRemove, shiping }) => (
 						<img src={image} width={100} />
 					</td>
 					<td>
-						{type ? 'Delivery:' + name : name}
+						{type ? (
+							<span>
+								<Text id="shipping" /> {name}
+							</span>
+						) : (
+							name
+						)}
 						{custom.map(({ key, value }) => (
 							<span>
 								<br />
@@ -23,7 +30,7 @@ const BasketList = ({ items, total, onRemove, shiping }) => (
 					<td>
 						{!type ? (
 							<button type="button" onClick={() => onRemove(index)}>
-								remove
+								<Text id="remove" />
 							</button>
 						) : (
 							''
@@ -33,7 +40,9 @@ const BasketList = ({ items, total, onRemove, shiping }) => (
 			);
 		})}
 		<tr>
-			<td colspan="4">Total: {formatCurrency(total)}</td>
+			<td colspan="4">
+				<Text id="total" />: {formatCurrency(total)}
+			</td>
 		</tr>
 	</table>
 );
