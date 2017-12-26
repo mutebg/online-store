@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 import { connect } from 'unistore/preact';
+import { Text } from 'preact-i18n';
+
 import actions from '../../actions';
 import { getBasketTotal } from '../../utils/cart';
 import CheckOut from '../../components/checkout';
@@ -15,8 +17,13 @@ export class Basket extends Component {
 	};
 
 	shippingMethods = [
-		{ id: 1, name: 'Pickup office', price: 4, type: 'office' },
-		{ id: 2, name: 'Door', price: 6, type: 'address' }
+		{ id: 1, name: <Text id="shipping_to_office" />, price: 4, type: 'office' },
+		{
+			id: 2,
+			name: <Text id="shipping_to_address" />,
+			price: 6,
+			type: 'address'
+		}
 	];
 
 	onShippingChange = id => {
@@ -39,12 +46,18 @@ export class Basket extends Component {
 		const total = getBasketTotal(basket.concat(currentShipping));
 
 		if (basket.length === 0) {
-			return <p>your basket is empty</p>;
+			return (
+				<p>
+					<Text id="empty_basket" />
+				</p>
+			);
 		}
 
 		return (
 			<form class="BasketPage" id="bakset-form">
-				<h1>Your Cart</h1>
+				<h1>
+					<Text id="your_cart" />
+				</h1>
 				<div class="BasketPage__box">
 					<BasketList
 						items={[].concat(basket, currentShipping)}
@@ -52,7 +65,9 @@ export class Basket extends Component {
 						onRemove={removeBasketItem}
 					/>
 				</div>
-				<h1>Shipping</h1>
+				<h1>
+					<Text id="shipping" />
+				</h1>
 				<div class="BasketPage__box">
 					<Shiping
 						methods={this.shippingMethods}
@@ -60,7 +75,9 @@ export class Basket extends Component {
 						onChange={this.onShippingChange}
 					/>
 				</div>
-				<h1>Payment</h1>
+				<h1>
+					<Text id="payment" />
+				</h1>
 				<div class="BasketPage__box">
 					<CheckOut
 						items={[].concat(basket, currentShipping)}

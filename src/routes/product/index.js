@@ -6,6 +6,7 @@ import actions from '../../actions';
 import { formatCurrency } from '../../../functions/helpers';
 import CustomFields from './CustomFields';
 import PropsForm from './PropsForm';
+import { Text } from 'preact-i18n';
 
 export class Product extends Component {
 	onSubmit = e => {
@@ -42,7 +43,9 @@ export class Product extends Component {
 					<form onSubmit={this.onSubmit} class="DetailsForm tile showIn">
 						<PropsForm data={props} />
 						<CustomFields {...custom} />
-						<button class="btn Details__buy">Buy</button>
+						<button class="btn Details__buy">
+							<Text id="buy" />
+						</button>
 					</form>
 
 					{images.map(img => (

@@ -4,6 +4,7 @@ import { connect } from 'unistore/preact';
 import actions from '../../actions';
 import { getBasketTotal } from '../../utils/cart';
 import { formatCurrency } from '../../../functions/helpers';
+import { Text } from 'preact-i18n';
 
 import './style';
 
@@ -26,9 +27,16 @@ export class Header extends Component {
 				</h1>
 				<nav>
 					<Link href="/basket">
-						{basket.length > 0
-							? `Buy ${basket.length} products for ${formatCurrency(total)}`
-							: ''}
+						{basket.length > 0 ? (
+							<Text
+								id="buy_header"
+								plural={basket.length}
+								fields={{
+									length: basket.length,
+									total: formatCurrency(total)
+								}}
+							/>
+						) : null}
 					</Link>
 				</nav>
 			</header>
