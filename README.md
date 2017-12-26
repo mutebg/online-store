@@ -5,7 +5,6 @@ TODO:
 * Better email templates
 * Add option to update order from administration
 * Style user order page
-* Animation when user click on Add to basket button and on the basket in top bar
 * Icons
 * Carousel in product page
 * Add date and status to order
@@ -17,9 +16,9 @@ TODO:
 Nice to have:
 
 * Product administration
-* Translations ( BG / EN )
 * Discounts for qtty
 * Econt create shipping order
+* Animation when user click on Add to basket button and on the basket in top bar ( that is not needed if user is redirected to basket)
 
 Before go live:
 
