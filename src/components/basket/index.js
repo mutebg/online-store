@@ -3,31 +3,32 @@ import { formatCurrency, formatProduct } from '../../../functions/helpers';
 import './style';
 
 const BasketList = ({ items, total, onRemove, shiping }) => (
-	<table class="BasketTablet" border={1}>
+	<div class="BasketTable">
 		{items.map((item, index) => {
 			const { image, name, price, custom, type } = formatProduct(item);
 			return (
-				<tr>
-					<td>
-						<img src={image} width={100} />
-					</td>
-					<td>
+				<div class="BasketTable__row">
+					{image ? (
+						<img src={image} class="BasketTable__image" />
+					) : (
+						<span class="BasketTable__image" />
+					)}
+					<div class="BasketTable__name">
 						{type ? (
 							<span>
 								<Text id="shipping" /> {name}
 							</span>
 						) : (
-							name
+							<strong>{name}</strong>
 						)}
 						{custom.map(({ key, value }) => (
-							<span>
-								<br />
-								{key}:{value}
+							<span class="BasketTable__extra">
+								{key}:<strong>{value}</strong>
 							</span>
 						))}
-					</td>
-					<td>{formatCurrency(price)}</td>
-					<td>
+					</div>
+					<div class="BasketTable__price">{formatCurrency(price)}</div>
+					<div class="BasketTable__btn">
 						{!type ? (
 							<button type="button" onClick={() => onRemove(index)}>
 								<Text id="remove" />
@@ -35,16 +36,14 @@ const BasketList = ({ items, total, onRemove, shiping }) => (
 						) : (
 							''
 						)}
-					</td>
-				</tr>
+					</div>
+				</div>
 			);
 		})}
-		<tr>
-			<td colspan="4">
-				<Text id="total" />: {formatCurrency(total)}
-			</td>
-		</tr>
-	</table>
+		<div class="BasketTable__row BasketTable__row--total">
+			<Text id="total" />: {formatCurrency(total)}
+		</div>
+	</div>
 );
 
 export default BasketList;

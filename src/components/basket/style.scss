@@ -1,17 +1,69 @@
-.BasketTablet {
+@import '../../style/_mixins';
+
+.BasketTable {
 	width: 100%;
 
-	tr td {
-		vertical-align: middle;
+	&__row {
 		border-bottom: 1px solid #ccc;
 		padding: 0.5em 0;
+		text-align: center;
+
+		@include respond-from('xs') {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			text-align: left;
+		}
+
+		&--total {
+			font-weight: bold;
+			font-size: 1.4em;
+
+			@include respond-from('xs') {
+				justify-content: flex-end;
+			}
+		}
 	}
 
-	tr:last-of-type td {
-		padding: 1em 0 0 0;
+	&__image {
+		max-width: 100%;
+		@include respond-from('xs') {
+			height: 100px;
+			width: 100px;
+		}
+	}
+
+	&__name {
+		flex: auto;
+		@include respond-from('xs') {
+			padding-left: 20px;
+		}
+	}
+
+	&__price {
 		font-weight: bold;
-		font-size: 1.4em;
-		text-align: right;
-		border-bottom: 0;
+		@include respond-from('xs') {
+			width: 100px;
+		}
+	}
+
+	&__btn {
+		@include respond-from('xs') {
+			width: 100px;
+		}
+	}
+
+	@include respond-to('xs') {
+		&__image,
+		&__name,
+		&__price,
+		&__btn {
+			padding: 5px 0;
+		}
+	}
+
+	&__extra {
+		font-size: 0.8em;
+		display: block;
 	}
 }

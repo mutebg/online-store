@@ -1,0 +1,57 @@
+$breakpoints: (
+	'xs': 568px,
+	'sm': 768px,
+	'md': 1024px,
+	'lg': 1176px,
+	'xl': 1440px
+);
+
+/// Max Responsive manager.
+/// @param {String} $breakpoint - Breakpoint or value ( 1000px )
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+	$width: map-get($breakpoints, $breakpoint);
+
+	@if not $width {
+		$width: $breakpoint;
+	}
+	@media (max-width: #{$width}) {
+		@content;
+	}
+}
+
+/// Min Responsive manager.
+/// @param {String} $breakpoint - Breakpoint or value ( 1000px )
+/// @requires $breakpoints
+@mixin respond-from($breakpoint) {
+	$width: map-get($breakpoints, $breakpoint);
+
+	@if not $width {
+		$width: $breakpoint;
+	}
+	@media (min-width: #{$width}) {
+		@content;
+	}
+}
+
+/// Helper to clear inner floats
+/// @author Nicolas Gallagher
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+@mixin clearfix {
+	&:after {
+		content: ' '; /* Older browser do not support empty content */
+		visibility: hidden;
+		display: block;
+		height: 0;
+		clear: both;
+	}
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

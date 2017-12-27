@@ -1,11 +1,8 @@
 TODO:
 
-* Add security rulez to firestore
-* Responsive tables
 * Better email templates
 * Add option to update order from administration
 * Style user order page
-* Icons
 * Carousel in product page
 * Add date and status to order
 * Manifest icons
@@ -19,6 +16,7 @@ Nice to have:
 * Discounts for qtty
 * Econt create shipping order
 * Animation when user click on Add to basket button and on the basket in top bar ( that is not needed if user is redirected to basket)
+* Icons
 
 Before go live:
 
@@ -27,3 +25,4 @@ Before go live:
 * Add paypal in braintree
 * MailGun + Domain
 * Econt real account + Switch API
+* Add security rulez to firestore
