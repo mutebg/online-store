@@ -35,10 +35,8 @@ export class Orders extends Component {
 				<table class="orders-table">
 					<tr>
 						<th>ID</th>
-						<th>Name</th>
-						<th>Email</th>
+						<th>Customer</th>
 						<th>Products</th>
-						<th>Shiping</th>
 						<th>Amount</th>
 						<th>View</th>
 					</tr>
@@ -55,12 +53,16 @@ export default reqAuth(Orders);
 const OrderRow = ({ id, products, amount, user }) => (
 	<tr>
 		<td>{id}</td>
-		<td>{user.name}</td>
-		<td>{user.email}</td>
+		<td>
+			{extractCustomer(user).map(({ key, value }) => (
+				<div>
+					{key}: {value}
+				</div>
+			))}
+		</td>
 		<td>
 			{products.map(p => <ProductRow key={p.id} {...formatProduct(p)} />)}
 		</td>
-		<td>___</td>
 		<td>{amount}</td>
 		<td>
 			<Link href={`/admin/order/${id}`}>View</Link>
@@ -84,3 +86,25 @@ const ProductRow = ({ id, name, price, custom }) => (
 		<hr />
 	</p>
 );
+
+const extractCustomer = customer => {
+	const list = [
+		'name',
+		'phone',
+		'email',
+		'city',
+		'post_code',
+		'street',
+		'other',
+		'office_code'
+	];
+	return list.reduce((prev, next) => {
+		if (customer[next]) {
+			prev.push({
+				key: next,
+				value: customer[next]
+			});
+		}
+		return prev;
+	}, []);
+};

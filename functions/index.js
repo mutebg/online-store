@@ -138,6 +138,7 @@ function saveProduct(amount, user, products) {
 		.firestore()
 		.collection('orders')
 		.add({
+			date: new Date(),
 			amount,
 			user,
 			products
