@@ -34,11 +34,11 @@ export class Orders extends Component {
 			return (
 				<table class="orders-table">
 					<tr>
-						<th>ID</th>
+						<th width="200">ID</th>
 						<th>Customer</th>
 						<th>Products</th>
-						<th>Amount</th>
-						<th>View</th>
+						<th width="50">Amount</th>
+						<th width="50">View</th>
 					</tr>
 					{orders.map(order => <OrderRow key={order.id} {...order} />)}
 				</table>
@@ -72,16 +72,13 @@ const OrderRow = ({ id, products, amount, user }) => (
 
 const ProductRow = ({ id, name, price, custom }) => (
 	<p>
-		ID:{id}
-		<br />
-		Name:{name}
-		<br />
-		Price:{price}
+		<div>ID:{id}</div>
+		<div>Name:{name}</div>
+		<div>Price:{price}</div>
 		{custom.map(({ key, value }) => (
-			<span>
-				<br />
+			<div>
 				{key} : {value}
-			</span>
+			</div>
 		))}
 		<hr />
 	</p>

@@ -3,6 +3,7 @@ const router = express.Router();
 const admin = require('firebase-admin');
 
 const db = admin.firestore().collection('orders');
+const emailTemplates = require('./templates/email');
 
 // return all orders
 // router.get('/', (req, res) =>
@@ -34,6 +35,26 @@ router.get('/:id', (req, res) =>
 				return res.send(docData);
 			}
 			return res.status(500).send('Error getting document');
+		})
+		.catch(err => {
+			res.status(500).send('Error getting document');
+		})
+);
+
+router.get('/email/:id', (req, res) =>
+	db
+		.doc(req.params.id)
+		.get()
+		.then(doc => {
+			if (!doc.exists) {
+				return res.status(500).send('No such document!');
+			}
+
+			const docData = doc.data();
+			docData.orderId = req.params.id;
+			const { globalConfig } = require('./inits');
+
+			return res.send(emailTemplates.customer(docData, globalConfig));
 		})
 		.catch(err => {
 			res.status(500).send('Error getting document');
