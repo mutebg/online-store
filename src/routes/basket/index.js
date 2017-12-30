@@ -1,12 +1,13 @@
 import { h, Component } from 'preact';
 import { connect } from 'unistore/preact';
 import { Text } from 'preact-i18n';
+import { route } from 'preact-router';
 
 import actions from '../../actions';
 import { getBasketTotal } from '../../utils/cart';
 import CheckOut from '../../components/checkout';
 import Shiping from '../../components/shiping';
-import { route } from 'preact-router';
+import { getDefinitions } from '../../utils/lang';
 
 import BasketList from '../../components/basket';
 import './style';
@@ -17,10 +18,15 @@ export class Basket extends Component {
 	};
 
 	shippingMethods = [
-		{ id: 1, name: <Text id="shipping_to_office" />, price: 4, type: 'office' },
+		{
+			id: 1,
+			name: getDefinitions('shipping_to_office'),
+			price: 4,
+			type: 'office'
+		},
 		{
 			id: 2,
-			name: <Text id="shipping_to_address" />,
+			name: getDefinitions('shipping_to_address'),
 			price: 6,
 			type: 'address'
 		}

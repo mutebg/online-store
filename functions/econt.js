@@ -66,6 +66,7 @@ router.get('/offices', (req, res) => {
 					cities.push(cityName);
 				}
 			});
+			res.set('Cache-Control', 'public, max-age=86400, s-maxage=86400');
 			res.json({
 				cities
 			});

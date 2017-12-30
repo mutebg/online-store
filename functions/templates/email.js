@@ -31,7 +31,7 @@ const productList = (products, { currency, domain }) =>
 						<meta itemprop="name" content="${name}"/>
 						<meta itemprop="sku" content="${id}"/>
 						<meta itemprop="image" content="${noImage}"/>
-						<meta itemprop="url" content="https://${domain}/product/${id}"/>
+						<meta itemprop="url" content="${domain}product/${id}"/>
 					</div>
 					<meta itemprop="price" content="${price}"/>
 					<meta itemprop="priceCurrency" content="${currency}"/>
@@ -48,8 +48,7 @@ exports.customer = function(
 	{ user, orderId, products, amount },
 	{ domain, name, currency = 'lv' }
 ) {
-	const orderLink =
-		'https://' + domain + '/order/' + orderId + '/' + user.email;
+	const orderLink = domain + 'order/' + orderId + '/' + user.email;
 	return `
 	<html>
 	  <body>
