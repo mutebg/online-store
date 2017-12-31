@@ -4,11 +4,16 @@
 		"one": "Купи 1 продукт за {{total}}",
 		"many": "Купи {{length}}  продукта за {{total}}"
 	},
+	"items_for": {
+		"one": "1 продукт, обща стойност {{total}}",
+		"many": "{{length}} продукта, обща стойност {{total}}"
+	},
 	"empty_basket": "Количката ти е празна",
 	"your_cart": "Количка",
 	"shipping": "Доставка",
 	"shipping_to_office": "До офис на Еконт",
 	"shipping_to_address": "До адрес",
+	"office_code": "Офис",
 	"payment": "Плащане",
 	"remove": "изтрий",
 	"name": "Име",

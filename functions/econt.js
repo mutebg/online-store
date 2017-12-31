@@ -84,6 +84,7 @@ router.get('/offices/:city', (req, res) => {
 			snapshot.forEach(doc => {
 				offices.push(doc.data());
 			});
+			res.set('Cache-Control', 'public, max-age=86400, s-maxage=86400');
 			res.json({
 				offices
 			});

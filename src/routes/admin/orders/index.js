@@ -4,6 +4,7 @@ import { Link } from 'preact-router/match';
 import './style';
 import { formatProduct } from '../../../../functions/helpers';
 import reqAuth from '../reqAuth';
+import { extractCustomer } from '../../../utils/shiping';
 
 export class Orders extends Component {
 	state = {
@@ -14,6 +15,7 @@ export class Orders extends Component {
 		this.props.firebase
 			.firestore()
 			.collection('orders')
+			.orderBy('date', 'desc')
 			.get()
 			.then(querySnapshot => {
 				const orders = [];
@@ -26,7 +28,8 @@ export class Orders extends Component {
 				this.setState({
 					orders
 				});
-			});
+			})
+			.catch(e => console.log(e));
 	}
 
 	render(_, { orders }) {
@@ -34,7 +37,7 @@ export class Orders extends Component {
 			return (
 				<table class="orders-table">
 					<tr>
-						<th width="200">ID</th>
+						<th width="200">ID/Date</th>
 						<th>Customer</th>
 						<th>Products</th>
 						<th width="50">Amount</th>
@@ -50,9 +53,14 @@ export class Orders extends Component {
 
 export default reqAuth(Orders);
 
-const OrderRow = ({ id, products, amount, user }) => (
+const OrderRow = ({ date, id, products, amount, user }) => (
 	<tr>
-		<td>{id}</td>
+		<td>
+			{id}
+			<br />
+			<br />
+			{date ? date.toLocaleString() : ''}
+		</td>
 		<td>
 			{extractCustomer(user).map(({ key, value }) => (
 				<div>
@@ -83,25 +91,3 @@ const ProductRow = ({ id, name, price, custom }) => (
 		<hr />
 	</p>
 );
-
-const extractCustomer = customer => {
-	const list = [
-		'name',
-		'phone',
-		'email',
-		'city',
-		'post_code',
-		'street',
-		'other',
-		'office_code'
-	];
-	return list.reduce((prev, next) => {
-		if (customer[next]) {
-			prev.push({
-				key: next,
-				value: customer[next]
-			});
-		}
-		return prev;
-	}, []);
-};

@@ -1,14 +1,12 @@
 TODO:
 
-* Better email templates
-* Add option to update order from administration
-* Style user order page
 * Carousel in product page
-* Add date and status to order
+* Add status to order
 * Manifest icons
 * Brand colors
 * Responsive images and script which resize them
 * Cache econt api data
+* Add option to update order from administration
 
 Nice to have:
 
@@ -26,3 +24,4 @@ Before go live:
 * MailGun + Domain
 * Econt real account + Switch API
 * Add security rulez to firestore
+* Configure GoogleAnalytics

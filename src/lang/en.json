@@ -4,11 +4,16 @@
 		"one": "Buy 1 product for {{total}}",
 		"many": "Buy {{length}}  products for {{total}}"
 	},
+	"items_for": {
+		"one": "1 item, total {{total}}",
+		"many": "{{length}} items, total {{total}}"
+	},
 	"empty_basket": "Your basket is empty",
 	"your_cart": "Your cart",
 	"shipping": "Shipping",
 	"shipping_to_office": "Pickup office",
 	"shipping_to_address": "Door",
+	"office_code": "Office",
 	"payment": "Payment",
 	"remove": "Remove",
 	"name": "Name",

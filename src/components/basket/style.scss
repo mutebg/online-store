@@ -35,6 +35,7 @@
 
 	&__name {
 		flex: auto;
+		line-height: 1.2;
 		@include respond-from('xs') {
 			padding-left: 20px;
 		}

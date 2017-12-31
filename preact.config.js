@@ -9,7 +9,8 @@ export default (config, env, helpers) => {
 		new webpack.EnvironmentPlugin({
 			NODE_ENV: 'development',
 			DEBUG: false,
-			API_URL: 'http://localhost:5000/onlinestore-2e046/us-central1/api/'
+			API_URL: 'http://localhost:5000/onlinestore-2e046/us-central1/api/',
+			GA: ''
 		})
 	);
 };

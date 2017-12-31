@@ -140,7 +140,7 @@ class Office extends Component {
 				{offices.length > 0 && (
 					<div class="form-row">
 						<label class="form-row__label" for="office_code">
-							<Text id="office" />
+							<Text id="office_code" />
 						</label>
 						<select
 							required

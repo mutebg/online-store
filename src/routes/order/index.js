@@ -1,8 +1,11 @@
 import { h, Component } from 'preact';
+import { Text } from 'preact-i18n';
+
 import './style';
 import { formatCurrency, formatProduct } from '../../../functions/helpers';
 
 import { loadOrder } from '../../utils/order';
+import { extractCustomer } from '../../utils/shiping';
 
 export class Order extends Component {
 	state = {
@@ -24,23 +27,45 @@ export class Order extends Component {
 			const productList = products.map(p => {
 				const { price, name, custom } = formatProduct(p);
 				return (
-					<p class="order-product-box">
-						{name} for {formatCurrency(price)}
-						<br />
-						{custom.map(({ key, value }) => (
-							<span>
-								{key} : {value} <br />
-							</span>
-						))}
-					</p>
+					<div class="order-view-product">
+						<div class="order-view-product__main">
+							<strong>{name}</strong>
+							<br /> {formatCurrency(price)}
+						</div>
+						<div class="order-view-product__options">
+							{custom.map(({ key, value }) => (
+								<span>
+									{key} : {value} <br />
+								</span>
+							))}
+						</div>
+					</div>
 				);
 			});
 			return (
-				<div>
-					Hello {user.name} <br />
-					Your order is <strong>{id}</strong>
+				<div class="order-view">
+					<div class="order-view-intro">
+						<p>Order number: {id}</p>
+						<p>
+							<Text
+								id="items_for"
+								plural={products.length}
+								fields={{
+									length: products.length,
+									total: formatCurrency(amount)
+								}}
+							/>
+						</p>
+					</div>
 					{productList}
-					<p class="order-total">Total amount: {formatCurrency(amount)}</p>
+					<p class="order-view-total">Total amount: {formatCurrency(amount)}</p>
+					<div class="order-view-shipping">
+						{extractCustomer(user).map(({ key, value }) => (
+							<p>
+								<Text id={key} />: {value}
+							</p>
+						))}
+					</div>
 				</div>
 			);
 		}
