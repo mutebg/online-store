@@ -4,6 +4,7 @@ import { route } from 'preact-router';
 import './style';
 import actions from '../../actions';
 import { formatCurrency } from '../../../functions/helpers';
+import { buildImageUrl } from '../../utils/images';
 import CustomFields from './CustomFields';
 import PropsForm from './PropsForm';
 import { Text } from 'preact-i18n';
@@ -49,7 +50,26 @@ export class Product extends Component {
 					</form>
 
 					{images.map(img => (
-						<img src={img} class="Details__image tile showIn" />
+						<picture>
+							<source
+								type="image/webp"
+								media="(min-width: 600px)"
+								srcset={buildImageUrl(img, '600', 'webp')}
+							/>
+							<source
+								type="image/jpg"
+								media="(min-width: 600px)"
+								srcset={buildImageUrl(img, '600', 'jpg')}
+							/>
+							<source
+								type="image/webp"
+								srcset={buildImageUrl(img, '300', 'webp')}
+							/>
+							<img
+								class="Details__image tile showIn"
+								src={buildImageUrl(img, '300', 'jpg')}
+							/>
+						</picture>
 					))}
 				</div>
 			);

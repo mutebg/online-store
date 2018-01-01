@@ -4,9 +4,7 @@
 		"name": "Product 1",
 		"description": "its awesome product",
 		"price": 12,
-		"images": [
-			"http://gravirai.eu/image/cache/catalog/18698424_1327306510709890_8766835089242817472_n-500x500.jpg"
-		],
+		"images": ["large-40566-41516-hd-wallpapers.jpg"],
 		"props": [
 			{
 				"label": "Color",
@@ -28,9 +26,7 @@
 		"name": "Product 1",
 		"description": "its awesome product",
 		"price": 12,
-		"images": [
-			"http://www.missyaggravation.com/images/pic/Links-of-London-Friends-Bracelet-115.jpg"
-		],
+		"images": ["large-40566-41516-hd-wallpapers.jpg"],
 		"props": [
 			{
 				"label": "Color",
@@ -52,9 +48,7 @@
 		"name": "Product 1",
 		"description": "its awesome product",
 		"price": 12,
-		"images": [
-			"https://item5.tradesy.com/images/michael-kors-michael-kors-rose-gold-tone-carved-heart-pink-rose-quartz-charm-bracel-21294239-0-1.jpg?width=720&height=960"
-		],
+		"images": ["large-40566-41516-hd-wallpapers.jpg"],
 		"props": [
 			{
 				"label": "Color",
@@ -76,9 +70,7 @@
 		"name": "Product 1",
 		"description": "its awesome product",
 		"price": 12,
-		"images": [
-			"http://gravirai.eu/image/cache/catalog/18698424_1327306510709890_8766835089242817472_n-500x500.jpg"
-		],
+		"images": ["large-40566-41516-hd-wallpapers.jpg"],
 		"props": [
 			{
 				"label": "Color",
@@ -100,9 +92,7 @@
 		"name": "Product 1",
 		"description": "its awesome product",
 		"price": 12,
-		"images": [
-			"http://gravirai.eu/image/cache/catalog/18698424_1327306510709890_8766835089242817472_n-500x500.jpg"
-		],
+		"images": ["large-40566-41516-hd-wallpapers.jpg"],
 		"props": [
 			{
 				"label": "Color",
@@ -124,9 +114,7 @@
 		"name": "Product 1",
 		"description": "its awesome product",
 		"price": 12,
-		"images": [
-			"http://gravirai.eu/image/cache/catalog/18698424_1327306510709890_8766835089242817472_n-500x500.jpg"
-		],
+		"images": ["large-40566-41516-hd-wallpapers.jpg"],
 		"props": [
 			{
 				"label": "Color",
@@ -148,9 +136,7 @@
 		"name": "Product 1",
 		"description": "its awesome product",
 		"price": 12,
-		"images": [
-			"http://gravirai.eu/image/cache/catalog/18698424_1327306510709890_8766835089242817472_n-500x500.jpg"
-		],
+		"images": ["large-40566-41516-hd-wallpapers.jpg"],
 		"props": [
 			{
 				"label": "Color",

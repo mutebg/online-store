@@ -3,6 +3,7 @@ const admin = require('firebase-admin');
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const images = require('./images');
 
 admin.initializeApp(functions.config().firebase);
 
@@ -10,7 +11,17 @@ app.use(cors());
 app.enable('trust proxy');
 
 app.get('/products', (req, res) => {
-	const products = require('./products.json');
+	// https://storage.googleapis.com/onlinestore-2e046.appspot.com/resized%2Flarge-40566-41516-hd-wallpapers.jpg_300_thumb.jpg
+	const imageBaseUrl =
+		'https://storage.googleapis.com/' +
+		functions.config().firebase.storageBucket +
+		'/resized/';
+	const productsData = require('./products.json');
+	const products = productsData.map(p => {
+		const newProd = Object.assign({}, p);
+		newProd.images = p.images.map(imgName => imageBaseUrl + imgName);
+		return newProd;
+	});
 	return res.json(products);
 });
 
@@ -110,6 +121,10 @@ exports.sendEmail = functions.firestore
 
 		return Promise.all([sendToAdmin, sendToCustomer]);
 	});
+
+exports.generateThumbnail = functions.storage
+	.object('uploads/{imageId}')
+	.onChange(images.resizeImage);
 
 function sendEmail({ from, to, subject, text }) {
 	const emailData = {

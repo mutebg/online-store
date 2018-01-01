@@ -9,6 +9,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "@google-cloud/storage": "^1.5.1",
     "body-parser": "^1.17.2",
     "braintree": "^2.4.0",
     "cors": "^2.8.4",
@@ -19,6 +20,7 @@
     "mailgun-js": "^0.13.1",
     "nodemailer": "^4.4.1",
     "request": "^2.81.0",
+    "sharp": "^0.18.4",
     "xml-js": "^1.5.2"
   },
   "private": true

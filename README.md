@@ -3,8 +3,8 @@ TODO:
 * Carousel in product page
 * Add status to order
 * Manifest icons
+* Responsive images ( jpg and webp format )
 * Brand colors
-* Responsive images and script which resize them
 * Cache econt api data
 * Add option to update order from administration
 
@@ -25,3 +25,8 @@ Before go live:
 * Econt real account + Switch API
 * Add security rulez to firestore
 * Configure GoogleAnalytics
+
+#How To:
+
+* How to make a storage bucket public:
+  https://cloud.google.com/storage/docs/access-control/making-data-public
