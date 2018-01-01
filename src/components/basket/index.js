@@ -1,5 +1,6 @@
 import { Text } from 'preact-i18n';
 import { formatCurrency, formatProduct } from '../../../functions/helpers';
+import { buildImageUrl } from '../../utils/images';
 import './style';
 
 const BasketList = ({ items, total, onRemove, shiping }) => (
@@ -9,7 +10,16 @@ const BasketList = ({ items, total, onRemove, shiping }) => (
 			return (
 				<div class="BasketTable__row">
 					{image ? (
-						<img src={image} class="BasketTable__image" />
+						<picture>
+							<source
+								type="image/webp"
+								srcset={buildImageUrl(image, '300', 'webp')}
+							/>
+							<img
+								class="BasketTable__image"
+								src={buildImageUrl(image, '300', 'jpg')}
+							/>
+						</picture>
 					) : (
 						<span class="BasketTable__image" />
 					)}
