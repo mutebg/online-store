@@ -7,7 +7,7 @@ import Product from '../routes/product';
 import Basket from '../routes/basket';
 import Order from '../routes/order';
 import AdminOrders from 'async!../routes/admin/orders';
-import AdminViwOrder from 'async!../routes/admin/vieworder';
+import AdminViewOrder from 'async!../routes/admin/vieworder';
 
 export default class App extends Component {
 
@@ -17,6 +17,7 @@ export default class App extends Component {
 	 */
 	handleRoute = e => {
 		this.currentUrl = e.url;
+		window.scrollTo({ top: 0 });
 	};
 
 	render() {
@@ -30,7 +31,7 @@ export default class App extends Component {
 						<Basket path="/basket" />
 						<Order path="/order/:id/:email" />
 						<AdminOrders path="/admin/orders" />
-						<AdminViwOrder path="/admin/order/:id" />
+						<AdminViewOrder path="/admin/order/:id" />
 					</Router>
 				</div>
 			</div>

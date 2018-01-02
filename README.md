@@ -1,9 +1,7 @@
 TODO:
 
-* Carousel in product page
 * Add status to order
 * Manifest icons
-* Responsive images ( jpg and webp format )
 * Brand colors
 * Cache econt api data
 * Add option to update order from administration
@@ -15,6 +13,7 @@ Nice to have:
 * Econt create shipping order
 * Animation when user click on Add to basket button and on the basket in top bar ( that is not needed if user is redirected to basket)
 * Icons
+* Carousel in product page
 
 Before go live:
 
