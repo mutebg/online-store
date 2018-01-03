@@ -1,10 +1,8 @@
 TODO:
 
-* Add status to order
 * Manifest icons
 * Brand colors
 * Cache econt api data
-* Add option to update order from administration
 
 Nice to have:
 
