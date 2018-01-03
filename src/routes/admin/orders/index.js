@@ -53,13 +53,16 @@ export class Orders extends Component {
 
 export default reqAuth(Orders);
 
-const OrderRow = ({ date, id, products, amount, user }) => (
+const OrderRow = ({ date, id, products, amount, user, status }) => (
 	<tr>
 		<td>
 			{id}
 			<br />
 			<br />
 			{date ? date.toLocaleString() : ''}
+			<br />
+			<br />
+			{status}
 		</td>
 		<td>
 			{extractCustomer(user).map(({ key, value }) => (
