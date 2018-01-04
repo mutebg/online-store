@@ -41,29 +41,24 @@ router.get('/:id', (req, res) =>
 		})
 );
 
-router.get('/email/:id', (req, res) =>
-	db
-		.doc(req.params.id)
-		.get()
-		.then(doc => {
-			if (!doc.exists) {
-				return res.status(500).send('No such document!');
-			}
-
-			const docData = doc.data();
-			docData.orderId = req.params.id;
-			const { globalConfig } = require('./inits');
-
-			return res.send(emailTemplates.customer(docData, globalConfig));
-		})
-		.catch(err => {
-			res.status(500).send('Error getting document');
-		})
-);
-
-// update an order
-// router.post('/:id', (req, res) => {
-// 	//TODO
-// });
+// router.get('/email/:id', (req, res) =>
+// 	db
+// 		.doc(req.params.id)
+// 		.get()
+// 		.then(doc => {
+// 			if (!doc.exists) {
+// 				return res.status(500).send('No such document!');
+// 			}
+//
+// 			const docData = doc.data();
+// 			docData.orderId = req.params.id;
+// 			const { globalConfig } = require('./inits');
+//
+// 			return res.send(emailTemplates.customer(docData, globalConfig));
+// 		})
+// 		.catch(err => {
+// 			res.status(500).send('Error getting document');
+// 		})
+// );
 
 module.exports = router;

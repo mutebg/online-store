@@ -2,7 +2,6 @@ TODO:
 
 * Manifest icons
 * Brand colors
-* Cache econt api data
 
 Nice to have:
 
