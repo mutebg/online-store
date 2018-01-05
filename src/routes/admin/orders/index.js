@@ -5,11 +5,23 @@ import './style';
 import { formatProduct } from '../../../../functions/helpers';
 import reqAuth from '../reqAuth';
 import { extractCustomer } from '../../../utils/shiping';
+import { ORDER_STATUS} from '../../../../functions/consts';
+
 
 export class Orders extends Component {
 	state = {
 		orders: []
 	};
+
+	updateOrder = (e, id) => {
+		this.props.firebase
+			.firestore()
+			.collection('orders')
+			.doc(id)
+			.update({
+				status: e.srcElement.value,
+			})
+	}
 
 	componentDidMount() {
 		this.props.firebase
@@ -43,7 +55,7 @@ export class Orders extends Component {
 						<th width="50">Amount</th>
 						<th width="50">View</th>
 					</tr>
-					{orders.map(order => <OrderRow key={order.id} {...order} />)}
+					{orders.map(order => <OrderRow key={order.id} {...order} updateOrder={this.updateOrder} />)}
 				</table>
 			);
 		}
@@ -53,7 +65,7 @@ export class Orders extends Component {
 
 export default reqAuth(Orders);
 
-const OrderRow = ({ date, id, products, amount, user, status }) => (
+const OrderRow = ({ date, id, products, amount, user, status, updateOrder }) => (
 	<tr>
 		<td>
 			{id}
@@ -62,7 +74,9 @@ const OrderRow = ({ date, id, products, amount, user, status }) => (
 			{date ? date.toLocaleString() : ''}
 			<br />
 			<br />
-			{status}
+			<select onChange={ (e) => updateOrder(e, id) }>{
+				ORDER_STATUS.map( item => <option selected={item === status}>{item}</option>)
+			}</select>
 		</td>
 		<td>
 			{extractCustomer(user).map(({ key, value }) => (
@@ -76,7 +90,7 @@ const OrderRow = ({ date, id, products, amount, user, status }) => (
 		</td>
 		<td>{amount}</td>
 		<td>
-			<Link href={`/admin/order/${id}`}>View</Link>
+			{/* <Link href={`/admin/order/${id}`}>View</Link> */}
 		</td>
 	</tr>
 );

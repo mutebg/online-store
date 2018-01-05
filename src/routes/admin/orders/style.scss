@@ -1,15 +1,20 @@
 .orders-table {
 	//border: 1px solid #ccc;
 	width: 100%;
+	background: #fbfbfb;
 
 	th {
 		background: #ccc;
 		font-weight: bold;
 	}
 
+	tr:nth-child(even) {
+		background: #fff
+	}
+
 	td,
 	th {
-		border: 1px solid #ccc;
+		border: 1px solid #eee;
 		padding: 5px;
 	}
 }
