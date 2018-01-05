@@ -23,7 +23,7 @@ export class Header extends Component {
     return (
       <header class="header">
         <h1>
-          <Link href="/">Online Store</Link>
+          <Link href="/">Gravirai</Link>
         </h1>
         <nav>
           {basket.length > 0 ? (

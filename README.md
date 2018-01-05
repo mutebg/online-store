@@ -1,15 +1,12 @@
 TODO:
 
-* Manifest icons
-* Brand colors
+* all is done
 
 Nice to have:
 
 * Product administration
 * Discounts for qtty
 * Econt create shipping order
-* Animation when user click on Add to basket button and on the basket in top bar ( that is not needed if user is redirected to basket)
-* Icons
 * Carousel in product page
 
 Before go live:
