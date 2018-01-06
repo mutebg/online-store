@@ -1,3 +1,14 @@
+# Gravirai.eu
+
+Simple PWA online store based on serverless architecture.
+
+frontend Stack:
+[Preact](https://github.com/developit/preact)
+[Unistore](https://github.com/developit/unistore)
+
+serverless:
+Firebase (Hosting, Functions, Firestore, Storage, Auth), MailGun, Braintree
+
 TODO:
 
 * all is done
@@ -11,14 +22,14 @@ Nice to have:
 
 Before go live:
 
-* Transfer domain [ in progress ]
 * braintree account
 * Add paypal in braintree
-* MailGun + Domain [ need testing ]
 * Econt real account + Switch API
-* Add security rulez to firestore [ need testing ]
-* Configure GoogleAnalytics
-* Add admin users
+* MailGun + Domain [ done ]
+* Transfer domain [ done ]
+* Add security rulez to firestore [ done ]
+* Configure GoogleAnalytics [ done ]
+* Add admin users [ done ]
 
 #How To:
 

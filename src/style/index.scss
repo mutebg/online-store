@@ -4,7 +4,6 @@ html,
 body,
 div,
 span,
-object,
 iframe,
 h1,
 h2,
@@ -13,29 +12,17 @@ h4,
 h5,
 h6,
 p,
-blockquote,
-pre,
-abbr,
 address,
 cite,
 code,
-del,
-dfn,
 em,
 img,
-ins,
-kbd,
 q,
-samp,
 small,
 sub,
 sup,
-var,
 b,
 i,
-dl,
-dt,
-dd,
 ol,
 ul,
 li,
@@ -64,8 +51,6 @@ menu,
 nav,
 section,
 summary,
-time,
-mark,
 audio,
 video {
   margin: 0;
@@ -180,7 +165,7 @@ body {
 }
 
 .wrapper {
-  padding: 76px 20px 0 20px;
+  padding: 76px 10px 0 10px;
   min-height: 100%;
   width: 100%;
   @include respond-from("md") {

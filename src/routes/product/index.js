@@ -5,6 +5,7 @@ import "./style";
 import actions from "../../actions";
 import { formatCurrency } from "../../../functions/helpers";
 import { buildImageUrl } from "../../utils/images";
+import { getFormData } from "../../utils/dom";
 import CustomFields from "./CustomFields";
 import PropsForm from "./PropsForm";
 import { Text } from "preact-i18n";
@@ -13,7 +14,8 @@ export class Product extends Component {
   onSubmit = e => {
     e.preventDefault();
     const form = document.querySelector(".DetailsForm");
-    const user = Array.from(new FormData(form).entries());
+    const user = getFormData(form);
+    console.log({ user });
     const product = this.props.products.filter(p => p.id === this.props.id)[0];
 
     const item = {
@@ -66,12 +68,32 @@ export class Product extends Component {
               <picture>
                 <source
                   type="image/webp"
-                  media="(min-width: 600px)"
+                  media="(min-width: 1600px)"
+                  srcset={buildImageUrl(img, "1200", "webp")}
+                />
+                <source
+                  type="image/jpg"
+                  media="(min-width: 1600px)"
+                  srcset={buildImageUrl(img, "1200", "jpg")}
+                />
+                <source
+                  type="image/webp"
+                  media="(min-width: 1200px)"
+                  srcset={buildImageUrl(img, "900", "webp")}
+                />
+                <source
+                  type="image/jpg"
+                  media="(min-width: 1200px)"
+                  srcset={buildImageUrl(img, "900", "jpg")}
+                />
+                <source
+                  type="image/webp"
+                  media="(min-width: 900px)"
                   srcset={buildImageUrl(img, "600", "webp")}
                 />
                 <source
                   type="image/jpg"
-                  media="(min-width: 600px)"
+                  media="(min-width: 900px)"
                   srcset={buildImageUrl(img, "600", "jpg")}
                 />
                 <source

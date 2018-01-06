@@ -1,6 +1,7 @@
 import { Text } from "preact-i18n";
 import { h, Component } from "preact";
 import { getToken, makeTransaction } from "../../utils/cart";
+import { getFormData } from "../../utils/dom";
 let dropin = require("braintree-web-drop-in");
 
 export default class CheckOut extends Component {
@@ -27,13 +28,10 @@ export default class CheckOut extends Component {
 
           form.addEventListener("submit", e => {
             e.preventDefault();
-            const data = Array.from(new FormData(form).entries()).reduce(
-              (prev, next) => {
-                prev[next[0]] = next[1];
-                return prev;
-              },
-              {}
-            );
+            const data = getFormData(form).reduce((prev, next) => {
+              prev[next[0]] = next[1];
+              return prev;
+            }, {});
 
             instance.requestPaymentMethod(
               (requestPaymentMethodErr, payload) => {
@@ -91,7 +89,7 @@ export default class CheckOut extends Component {
               viewBox="0 0 640 512"
             >
               <path
-                color="currentColor"
+                fill="currentColor"
                 d="M616 96H24c-13.255 0-24 10.745-24 24v272c0 13.255 10.745 24 24 24h592c13.255 0 24-10.745 24-24V120c0-13.255-10.745-24-24-24zm-8 224c-35.346 0-64 28.654-64 64H96c0-35.346-28.654-64-64-64V192c35.346 0 64-28.654 64-64h448c0 35.346 28.654 64 64 64v128zm-208-64c0 53.031-35.833 96-80 96-44.186 0-80-42.989-80-96 0-53.021 35.816-96 80-96s80 42.979 80 96z"
               />
             </svg>

@@ -23,7 +23,9 @@ export class Header extends Component {
     return (
       <header class="header">
         <h1>
-          <Link href="/">Gravirai</Link>
+          <Link href="/">
+            G<span>ravirai</span>
+          </Link>
         </h1>
         <nav>
           {basket.length > 0 ? (
