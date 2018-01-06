@@ -38,11 +38,11 @@ export class Product extends Component {
       return (
         <div class="Details">
           <div class="Details__main">
-            <h1 class="Details__name showIn">{name}</h1>
-            <p class="Details__price showIn">{formatCurrency(price)}</p>
-            <p class="Details__description showIn">{description}</p>
+            <h1 class="Details__name">{name}</h1>
+            <p class="Details__price">{formatCurrency(price)}</p>
+            <p class="Details__description">{description}</p>
 
-            <form onSubmit={this.onSubmit} class="DetailsForm showIn">
+            <form onSubmit={this.onSubmit} class="DetailsForm">
               <PropsForm data={props} />
               <CustomFields {...custom} />
               <button class="btn Details__buy">
@@ -79,7 +79,7 @@ export class Product extends Component {
                   srcset={buildImageUrl(img, "300", "webp")}
                 />
                 <img
-                  class="Details__image showIn"
+                  class="Details__image"
                   src={buildImageUrl(img, "300", "jpg")}
                 />
               </picture>

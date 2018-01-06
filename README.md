@@ -11,13 +11,14 @@ Nice to have:
 
 Before go live:
 
-* Transfer domain
+* Transfer domain [ in progress ]
 * braintree account
 * Add paypal in braintree
-* MailGun + Domain
+* MailGun + Domain [ need testing ]
 * Econt real account + Switch API
-* Add security rulez to firestore
+* Add security rulez to firestore [ need testing ]
 * Configure GoogleAnalytics
+* Add admin users
 
 #How To:
 
