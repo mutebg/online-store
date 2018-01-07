@@ -5,24 +5,28 @@
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "API_URL='https://us-central1-onlinestore-2e046.cloudfunctions.net/api/' DEBUG=false NODE_ENV=production preact build --no-prerender --template src/assets/template.html",
+    "build":
+      "API_URL='https://us-central1-onlinestore-2e046.cloudfunctions.net/api/' DEBUG=false NODE_ENV=production preact build --no-prerender --template src/assets/template.html",
     "serve": "preact build && preact serve",
     "dev": "preact watch --template src/assets/template.html",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "deploy":
+      "npm run build && node prerenderer.js && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
   },
-  "eslintIgnore": [
-    "build/*"
-  ],
+  "eslintIgnore": ["build/*"],
   "devDependencies": {
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
     "if-env": "^1.0.0",
+    "node-http-server": "^8.1.2",
     "node-sass": "^4.7.2",
     "preact-cli": "^2.0.0",
-    "sass-loader": "^6.0.6"
+    "puppeteer": "^0.13.0",
+    "sass-loader": "^6.0.6",
+    "webpack-plugin-critical": "^1.0.0"
   },
   "dependencies": {
     "braintree-web": "^3.26.0",
