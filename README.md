@@ -2,11 +2,11 @@
 
 Simple PWA online store based on serverless architecture.
 
-frontend Stack:
+Frontend Stack:
 [Preact](https://github.com/developit/preact)
 [Unistore](https://github.com/developit/unistore)
 
-serverless:
+Serverless:
 Firebase (Hosting, Functions, Firestore, Storage, Auth), MailGun, Braintree
 
 TODO:

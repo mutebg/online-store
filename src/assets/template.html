@@ -36,10 +36,7 @@ gtag("config", "UA-112012833-1");
 
 	</head>
 	<body class="">
-		<div>
-			<header class="header"><h1><a href="/" class="">G<span>ravirai</span></a></h1><nav></nav></header>
-			<p>Loading...</p>
-		</div>
+		<div class="prerender"><!--PRERENDER-CONTENT-HERE--></div>
 		<%= htmlWebpackPlugin.options.ssr({
 			url: '/'
 		}) %>
