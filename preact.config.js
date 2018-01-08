@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const CriticalPlugin = require("webpack-plugin-critical").CriticalPlugin;
+const StyleExtHtmlWebpackPlugin = require("style-ext-html-webpack-plugin");
 
 export default (config, env, helpers) => {
   // Disabled CSS modules
@@ -17,12 +18,13 @@ export default (config, env, helpers) => {
 
   if (env.isProd) {
     config.plugins.push(
-      new CriticalPlugin({
-        src: "index.html",
-        inline: true,
-        minify: true,
-        dest: "index.html"
-      })
+      // new CriticalPlugin({
+      //   src: "index.html",
+      //   inline: true,
+      //   minify: true,
+      //   dest: "index.html"
+      // })
+      new StyleExtHtmlWebpackPlugin()
     );
   }
 };

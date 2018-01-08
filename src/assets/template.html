@@ -37,9 +37,6 @@ gtag("config", "UA-112012833-1");
 	</head>
 	<body class="">
 		<div class="prerender"><!--PRERENDER-CONTENT-HERE--></div>
-		<%= htmlWebpackPlugin.options.ssr({
-			url: '/'
-		}) %>
 		<script defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
 		<script>window.fetch||document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')</script>
 

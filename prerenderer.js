@@ -33,6 +33,9 @@ function serverReady() {
 
 function replateContent(html) {
   const indexFile = fs.readFileSync(localIndexFile, "utf8");
-  const newContent = indexFile.replace('<div class="prerender"></div>', html);
+  const newContent = indexFile.replace(
+    '<div class="prerender"></div>',
+    `<div class="ssr">${html}</div>`
+  );
   fs.writeFileSync(localIndexFile, newContent, "utf8");
 }
