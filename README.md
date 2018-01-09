@@ -15,6 +15,7 @@ TODO:
 
 Nice to have:
 
+* Order validation in the backend
 * Product administration
 * Discounts for qtty
 * Econt create shipping order

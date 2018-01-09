@@ -5,7 +5,7 @@ import { route } from "preact-router";
 
 import actions from "../../actions";
 import { getBasketTotal } from "../../utils/cart";
-import CheckOut from "../../components/checkout";
+import CheckOut from "async!../../components/checkout";
 import Shiping from "../../components/shiping";
 import { getDefinitions } from "../../utils/lang";
 

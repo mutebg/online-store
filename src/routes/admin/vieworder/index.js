@@ -1,6 +1,6 @@
 import { h, Component } from "preact";
 import "./style";
-import reqAuth from "../reqAuth";
+import reqAuth from "async!../reqAuth";
 import { ORDER_STATUS } from "../../../../functions/consts";
 
 export class ViewOrder extends Component {

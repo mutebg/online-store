@@ -3,7 +3,7 @@ import { Link } from "preact-router/match";
 
 import "./style";
 import { formatProduct } from "../../../../functions/helpers";
-import reqAuth from "../reqAuth";
+import reqAuth from "async!../reqAuth";
 import { extractCustomer } from "../../../utils/shiping";
 import { ORDER_STATUS } from "../../../../functions/consts";
 
