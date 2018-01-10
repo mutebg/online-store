@@ -5,6 +5,8 @@ const cors = require("cors");
 const app = express();
 const images = require("./images");
 const ORDER_STATUS = require("./consts").ORDER_STATUS;
+const productsData = require("./products.json");
+const validateProduct = require("./helpers").validateProduct;
 
 admin.initializeApp(functions.config().firebase);
 
@@ -17,7 +19,7 @@ app.get("/products", (req, res) => {
     "https://storage.googleapis.com/" +
     functions.config().firebase.storageBucket +
     "/resized/";
-  const productsData = require("./products.json");
+
   const products = productsData.map(p => {
     const newProd = Object.assign({}, p);
     newProd.images = p.images.map(imgName => imageBaseUrl + imgName);
@@ -72,6 +74,12 @@ app.post("/checkout", (req, res) => {
     );
   })
     .then(result => {
+      const checkProducts = items.every(p => validateProduct(productsData, p));
+      if (!checkProducts) {
+        res.status(500).send("Fake order data...");
+        return;
+      }
+
       saveProduct(amount, user, items).then(ref => {
         res.send({
           success: true,

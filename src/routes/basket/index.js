@@ -51,6 +51,8 @@ export class Basket extends Component {
     );
     const total = getBasketTotal(basket.concat(currentShipping));
 
+    console.log({ total, basket });
+
     if (basket.length === 0) {
       return (
         <p style="text-align: center">
