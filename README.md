@@ -12,10 +12,10 @@ Firebase (Hosting, Functions, Firestore, Storage, Auth), MailGun, Braintree
 TODO:
 
 * all is done
+* Remove item doesn't remove if from the store so order is placed with all products
 
 Nice to have:
 
-* Order validation in the backend
 * Product administration
 * Discounts for qtty
 * Econt create shipping order

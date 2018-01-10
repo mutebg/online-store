@@ -1,70 +1,70 @@
-@import '../../style/_mixins';
+@import "../../style/_mixins";
 
 .BasketTable {
-	width: 100%;
+  width: 100%;
 
-	&__row {
-		border-bottom: 1px solid #ccc;
-		padding: 0.5em 0;
-		text-align: center;
+  &__row {
+    border-bottom: 1px solid #ccc;
+    padding: 0.5em 0;
+    text-align: center;
 
-		@include respond-from('xs') {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			text-align: left;
-		}
+    @include respond-from("xs") {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
 
-		&--total {
-			font-weight: bold;
-			font-size: 1.4em;
+    &--total {
+      font-weight: bold;
+      font-size: 1.4em;
 
-			@include respond-from('xs') {
-				justify-content: flex-end;
-			}
-		}
-	}
+      @include respond-from("xs") {
+        justify-content: flex-end;
+      }
+    }
+  }
 
-	&__image {
-		max-width: 100%;
-		@include respond-from('xs') {
-			height: 100px;
-			width: 100px;
-		}
-	}
+  &__image {
+    max-width: 100%;
+    @include respond-from("xs") {
+      height: 100px;
+      width: 100px;
+    }
+  }
 
-	&__name {
-		flex: auto;
-		line-height: 1.2;
-		@include respond-from('xs') {
-			padding-left: 20px;
-		}
-	}
+  &__name {
+    flex: auto;
+    line-height: 1.2;
+    @include respond-from("xs") {
+      padding-left: 20px;
+    }
+  }
 
-	&__price {
-		font-weight: bold;
-		@include respond-from('xs') {
-			width: 100px;
-		}
-	}
+  &__price {
+    font-weight: bold;
+    @include respond-from("xs") {
+      width: 100px;
+    }
+  }
 
-	&__btn {
-		@include respond-from('xs') {
-			width: 100px;
-		}
-	}
+  &__btn {
+    @include respond-from("xs") {
+      width: 32px;
+    }
+  }
 
-	@include respond-to('xs') {
-		&__image,
-		&__name,
-		&__price,
-		&__btn {
-			padding: 5px 0;
-		}
-	}
+  @include respond-to("xs") {
+    &__image,
+    &__name,
+    &__price,
+    &__btn {
+      padding: 5px 0;
+    }
+  }
 
-	&__extra {
-		font-size: 0.8em;
-		display: block;
-	}
+  &__extra {
+    font-size: 0.8em;
+    display: block;
+  }
 }
