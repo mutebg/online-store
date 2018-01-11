@@ -20,6 +20,7 @@
   "devDependencies": {
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
+    "ga-lite": "^2.0.1",
     "if-env": "^1.0.0",
     "node-http-server": "^8.1.2",
     "node-sass": "^4.7.2",

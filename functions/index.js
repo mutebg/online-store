@@ -25,7 +25,10 @@ app.get("/products", (req, res) => {
     newProd.images = p.images.map(imgName => imageBaseUrl + imgName);
     return newProd;
   });
-  return res.json(products);
+
+  return res
+    .set("Cache-Control", "public, max-age=1800, s-maxage=1800")
+    .json(products);
 });
 
 app.get("/client_token", (req, res) => {
@@ -59,8 +62,6 @@ app.post("/checkout", (req, res) => {
         amount,
         paymentMethodNonce: nonceFromTheClient,
         options: {
-          // This option requests the funds from the transaction
-          // once it has been authorized successfully
           submitForSettlement: true
         }
       },
@@ -76,8 +77,7 @@ app.post("/checkout", (req, res) => {
     .then(result => {
       const checkProducts = items.every(p => validateProduct(productsData, p));
       if (!checkProducts) {
-        res.status(500).send("Fake order data...");
-        return;
+        return res.status(500).send("Fake order data...");
       }
 
       saveProduct(amount, user, items).then(ref => {

@@ -1,64 +1,28 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const admin = require('firebase-admin');
+const admin = require("firebase-admin");
 
-const db = admin.firestore().collection('orders');
-const emailTemplates = require('./templates/email');
-
-// return all orders
-// router.get('/', (req, res) =>
-// 	db
-// 		.limit(100)
-// 		.get()
-// 		.then(snapshot => {
-// 			const data = [];
-// 			snapshot.forEach(doc => {
-// 				data.push(Object.assign({ id: doc.id }, doc.data()));
-// 			});
-// 			return res.send({
-// 				orders: data
-// 			});
-// 		})
-// );
+const db = admin.firestore().collection("orders");
+const emailTemplates = require("./templates/email");
 
 // return single order
-router.get('/:id', (req, res) =>
-	db
-		.doc(req.params.id)
-		.get()
-		.then(doc => {
-			if (!doc.exists) {
-				return res.status(500).send('No such document!');
-			}
-			const docData = doc.data();
-			if (docData.user.email === req.query.email) {
-				return res.send(docData);
-			}
-			return res.status(500).send('Error getting document');
-		})
-		.catch(err => {
-			res.status(500).send('Error getting document');
-		})
+router.get("/:id", (req, res) =>
+  db
+    .doc(req.params.id)
+    .get()
+    .then(doc => {
+      if (!doc.exists) {
+        return res.status(500).send("No such document!");
+      }
+      const docData = doc.data();
+      if (docData.user.email === req.query.email) {
+        return res.send(docData);
+      }
+      return res.status(500).send("Error getting document");
+    })
+    .catch(err => {
+      res.status(500).send("Error getting document");
+    })
 );
-
-// router.get('/email/:id', (req, res) =>
-// 	db
-// 		.doc(req.params.id)
-// 		.get()
-// 		.then(doc => {
-// 			if (!doc.exists) {
-// 				return res.status(500).send('No such document!');
-// 			}
-//
-// 			const docData = doc.data();
-// 			docData.orderId = req.params.id;
-// 			const { globalConfig } = require('./inits');
-//
-// 			return res.send(emailTemplates.customer(docData, globalConfig));
-// 		})
-// 		.catch(err => {
-// 			res.status(500).send('Error getting document');
-// 		})
-// );
 
 module.exports = router;

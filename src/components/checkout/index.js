@@ -12,8 +12,6 @@ export default class CheckOut extends Component {
 
   componentDidMount() {
     getToken().then(({ token }) => {
-      const { items, total } = this.props;
-
       let form = document.querySelector("#bakset-form");
 
       dropin.create(
@@ -35,6 +33,8 @@ export default class CheckOut extends Component {
 
             instance.requestPaymentMethod(
               (requestPaymentMethodErr, payload) => {
+                const { items, total } = this.props;
+
                 // When the user clicks on the 'Submit payment' button this code will send the
                 // encrypted payment information in a variable called a payment method nonce
                 makeTransaction(payload.nonce, total, items, data).then(

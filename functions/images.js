@@ -58,7 +58,6 @@ function resizeImage(event) {
             });
         });
       });
-      console.log("END OF PROMISE CHAIN");
     });
 }
 

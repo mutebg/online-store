@@ -11,8 +11,8 @@ Firebase (Hosting, Functions, Firestore, Storage, Auth), MailGun, Braintree
 
 TODO:
 
+* Use GA lite https://github.com/jehna/ga-lite
 * all is done
-* Remove item doesn't remove if from the store so order is placed with all products
 
 Nice to have:
 
