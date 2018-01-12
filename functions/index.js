@@ -6,7 +6,6 @@ const app = express();
 const images = require("./images");
 const ORDER_STATUS = require("./consts").ORDER_STATUS;
 const productsData = require("./products.json");
-const validateProduct = require("./helpers").validateProduct;
 
 admin.initializeApp(functions.config().firebase);
 
@@ -14,7 +13,6 @@ app.use(cors());
 app.enable("trust proxy");
 
 app.get("/products", (req, res) => {
-  // https://storage.googleapis.com/onlinestore-2e046.appspot.com/resized%2Flarge-40566-41516-hd-wallpapers.jpg_300_thumb.jpg
   const imageBaseUrl =
     "https://storage.googleapis.com/" +
     functions.config().firebase.storageBucket +
@@ -31,71 +29,7 @@ app.get("/products", (req, res) => {
     .json(products);
 });
 
-app.get("/client_token", (req, res) => {
-  const { gateway } = require("./inits");
-  return new Promise((resolve, reject) => {
-    gateway.clientToken.generate({}, (err, response) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(response);
-      }
-    });
-  }).then(response =>
-    res.json({
-      token: response.clientToken
-    })
-  );
-});
-
-app.post("/checkout", (req, res) => {
-  const { gateway } = require("./inits");
-  // Use the payment method nonce here
-  let nonceFromTheClient = req.body.paymentMethodNonce;
-  let amount = req.body.amount;
-  let items = req.body.items;
-  let user = req.body.userData;
-  // Create a new transaction for $10
-  return new Promise((resolve, reject) => {
-    gateway.transaction.sale(
-      {
-        amount,
-        paymentMethodNonce: nonceFromTheClient,
-        options: {
-          submitForSettlement: true
-        }
-      },
-      (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(result);
-        }
-      }
-    );
-  })
-    .then(result => {
-      const checkProducts = items.every(p => validateProduct(productsData, p));
-      if (!checkProducts) {
-        return res.status(500).send("Fake order data...");
-      }
-
-      saveProduct(amount, user, items).then(ref => {
-        res.send({
-          success: true,
-          order: {
-            amount,
-            user,
-            products: items,
-            id: ref.id
-          }
-        });
-      });
-    })
-    .catch(error => {
-      res.status(500).send(error);
-    });
-});
+app.use("/", require("./checkout"));
 
 app.use("/orders", require("./orders"));
 
@@ -104,6 +38,8 @@ app.use("/econt", require("./econt"));
 // Expose the API as a function
 exports.api = functions.https.onRequest(app);
 
+// Every time a new order is placed to DB it triggers this event and
+// send email to customer and admin
 exports.sendEmail = functions.firestore
   .document("orders/{id}")
   .onCreate(event => {
@@ -133,7 +69,7 @@ exports.generateThumbnail = functions.storage
   .object("uploads/{imageId}")
   .onChange(images.resizeImage);
 
-function sendEmail({ from, to, subject, text }) {
+const sendEmail = ({ from, to, subject, text }) => {
   const emailData = {
     from,
     to,
@@ -152,17 +88,4 @@ function sendEmail({ from, to, subject, text }) {
       }
     });
   });
-}
-
-function saveProduct(amount, user, products) {
-  return admin
-    .firestore()
-    .collection("orders")
-    .add({
-      date: new Date(),
-      status: ORDER_STATUS[0],
-      amount,
-      user,
-      products
-    });
-}
+};

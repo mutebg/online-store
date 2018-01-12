@@ -15,7 +15,6 @@ export class Product extends Component {
     e.preventDefault();
     const form = document.querySelector(".DetailsForm");
     const user = getFormData(form);
-    console.log({ user });
     const product = this.props.products.filter(p => p.id === this.props.id)[0];
 
     const item = {

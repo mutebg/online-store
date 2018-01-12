@@ -11,7 +11,6 @@ Firebase (Hosting, Functions, Firestore, Storage, Auth), MailGun, Braintree
 
 TODO:
 
-* Use GA lite https://github.com/jehna/ga-lite
 * all is done
 
 Nice to have:
@@ -20,17 +19,6 @@ Nice to have:
 * Discounts for qtty
 * Econt create shipping order
 * Carousel in product page
-
-Before go live:
-
-* braintree account
-* Add paypal in braintree
-* Econt real account + Switch API
-* MailGun + Domain [ done ]
-* Transfer domain [ done ]
-* Add security rulez to firestore [ done ]
-* Configure GoogleAnalytics [ done ]
-* Add admin users [ done ]
 
 #How To:
 
