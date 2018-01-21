@@ -1,11 +1,11 @@
 .product {
 	display: block;
 	width: 300px;
-	height: 370px;
 	margin-bottom: 3em;
 	transition: 0.2s transform linear;
 	transform-origin: 50% 0;
 	text-align: center;
+	height: calc(100% - 3em);
 
 	cursor: pointer;
 
@@ -19,9 +19,9 @@
 	}
 
 	&__thumb {
-		width: 300px;
-		height: 300px;
-		overflow: hidden;
+		// width: 300px;
+		// height: 300px;
+		// overflow: hidden;
 	}
 
 	&__text {

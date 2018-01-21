@@ -1,156 +1,178 @@
 [
-  {
-    "id": "1",
-    "name": "Модел \"Стомана\"",
-    "description": "унисекс гривна с вашето име,дата или името на любим човек",
-    "price": 20,
-    "images": ["Stomana.jpg"],
-    "props": [
-      {
-        "label": "Цвят на гривна 1",
-        "values": ["Черен", "Червен"]
-      },
-      {
-        "label": "Цвят на гривна 2",
-        "values": ["Черен", "Червен"]
-      }
-    ],
-    "custom": {
-      "label": "Какво да пише на гривните",
-      "length": 20,
-      "number": 2
-    }
-  },
-  {
-    "id": "2",
-    "name": "Product 1",
-    "description": "its awesome product",
-    "price": 12,
-    "images": ["large-40566-41516-hd-wallpapers.jpg"],
-    "props": [
-      {
-        "label": "Color",
-        "values": ["green", "blue", "pink"]
-      },
-      {
-        "label": "Size",
-        "values": ["M", "L", "S"]
-      }
-    ],
-    "custom": {
-      "label": "Letter",
-      "length": 1,
-      "number": 2
-    }
-  },
-  {
-    "id": "3",
-    "name": "Product 1",
-    "description": "its awesome product",
-    "price": 12,
-    "images": ["large-40566-41516-hd-wallpapers.jpg"],
-    "props": [
-      {
-        "label": "Color",
-        "values": ["green", "blue", "pink"]
-      },
-      {
-        "label": "Size",
-        "values": ["M", "L", "S"]
-      }
-    ],
-    "custom": {
-      "label": "Letter",
-      "length": 1,
-      "number": 2
-    }
-  },
-  {
-    "id": "4",
-    "name": "Product 1",
-    "description": "its awesome product",
-    "price": 12,
-    "images": ["large-40566-41516-hd-wallpapers.jpg"],
-    "props": [
-      {
-        "label": "Color",
-        "values": ["green", "blue", "pink"]
-      },
-      {
-        "label": "Size",
-        "values": ["M", "L", "S"]
-      }
-    ],
-    "custom": {
-      "label": "Letter",
-      "length": 1,
-      "number": 2
-    }
-  },
-  {
-    "id": "5",
-    "name": "Product 1",
-    "description": "its awesome product",
-    "price": 12,
-    "images": ["large-40566-41516-hd-wallpapers.jpg"],
-    "props": [
-      {
-        "label": "Color",
-        "values": ["green", "blue", "pink"]
-      },
-      {
-        "label": "Size",
-        "values": ["M", "L", "S"]
-      }
-    ],
-    "custom": {
-      "label": "Letter",
-      "length": 1,
-      "number": 2
-    }
-  },
-  {
-    "id": "6",
-    "name": "Product 1",
-    "description": "its awesome product",
-    "price": 12,
-    "images": ["large-40566-41516-hd-wallpapers.jpg"],
-    "props": [
-      {
-        "label": "Color",
-        "values": ["green", "blue", "pink"]
-      },
-      {
-        "label": "Size",
-        "values": ["M", "L", "S"]
-      }
-    ],
-    "custom": {
-      "label": "Letter",
-      "length": 1,
-      "number": 2
-    }
-  },
-  {
-    "id": "7",
-    "name": "Product 1",
-    "description": "its awesome product",
-    "price": 12,
-    "images": ["large-40566-41516-hd-wallpapers.jpg"],
-    "props": [
-      {
-        "label": "Color",
-        "values": ["green", "blue", "pink"]
-      },
-      {
-        "label": "Size",
-        "values": ["M", "L", "S"]
-      }
-    ],
-    "custom": {
-      "label": "Letter",
-      "length": 1,
-      "number": 2
-    }
-  }
+	{
+		"id": "1",
+		"name": "Комплект гривни с име на стоманена плочка",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["Stomana1.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Надпис на гривна ",
+			"length": 20,
+			"number": 2
+		}
+	},
+	{
+		"id": "2",
+		"name": "Комплект гривни с имена гравирани на пластмасова плочка",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["pastmasa1.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Надпис на гривна",
+			"length": 14,
+			"number": 2
+		}
+	},
+	{
+		"id": "3",
+		"name": "Комплект гривни с имена маркирани на стоманена плочка",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["stomana2.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Надпис на гривна ",
+			"length": 20,
+			"number": 1
+		}
+	},
+	{
+		"id": "4",
+		"name": "Комплект гривни с буква гравирана на кръстче от хематит",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["krust1.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Буква на гривна ",
+			"length": 1,
+			"number": 2
+		}
+	},
+	{
+		"id": "5",
+		"name": "Комплект гривни със знак за безкрайност и буква ",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["infinity1.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Буква на гривна ",
+			"length": 1,
+			"number": 2
+		}
+	},
+	{
+		"id": "6",
+		"name": "Комплект гривни със знак за безкрайност&любов и буква ",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["infinity2.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Буква на гривна ",
+			"length": 1,
+			"number": 2
+		}
+	},
+	{
+		"id": "7",
+		"name": "Комплект гривни с име на стоманена плочка и кожена кайшка",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["stomana3.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Надпис на гривна ",
+			"length": 20,
+			"number": 2
+		}
+	},
+	{
+		"id": "8",
+		"name": "Комплект гривни със стоманена плочка",
+		"description": "Страхотен подарък за любим човек.",
+		"price": 20,
+		"images": ["stomana4.jpg"],
+		"props": [
+			{
+				"label": "Цвят на гривна 1",
+				"values": ["Червен", "Черен"]
+			},
+			{
+				"label": "Цвят на гривна 2",
+				"values": ["Червен", "Черен"]
+			}
+		],
+		"custom": {
+			"label": "Надпис на гривна ",
+			"length": 10,
+			"number": 2
+		}
+	}
 ]
