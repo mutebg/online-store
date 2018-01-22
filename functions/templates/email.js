@@ -20,11 +20,11 @@ const productList = (products, { currency, domain }) =>
 					<td valign="top" ${tdStyle}><b>${name}</b></td>
 					<td valign="top" ${tdStyle}>
 					${custom
-		.map(
-			({ key, value }) => `
+						.map(
+							({ key, value }) => `
 							${key} : <b>${value}</b><br />`
-		)
-		.join('')}
+						)
+						.join('')}
 				</td>
 				<td valign="top" ${tdStyle}><b>${formatCurrency(price)}</b>
 					<div itemprop="itemOffered" itemscope itemtype="http://schema.org/Product">

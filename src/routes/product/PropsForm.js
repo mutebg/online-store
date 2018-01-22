@@ -14,4 +14,3 @@ const PropsForm = ({ data }) => (
 );
 
 export default PropsForm;
-
