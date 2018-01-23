@@ -1,44 +1,44 @@
 {
-  "private": true,
-  "name": "OnlineStore",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "API_URL='https://us-central1-onlinestore-2e046.cloudfunctions.net/api/' DEBUG=false NODE_ENV=production preact build --no-prerender --template src/assets/template.html",
-    "serve": "preact build && preact serve",
-    "dev": "preact watch --template src/assets/template.html",
-    "lint": "eslint src",
-    "deploy": "npm run build && node prerenderer.js && firebase deploy --only hosting"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-synacor"
-  },
-  "eslintIgnore": [
-    "build/*"
-  ],
-  "devDependencies": {
-    "eslint": "^4.5.0",
-    "eslint-config-synacor": "^1.1.0",
-    "ga-lite": "^2.0.1",
-    "if-env": "^1.0.0",
-    "node-http-server": "^8.1.2",
-    "node-sass": "^4.7.2",
-    "preact-cli": "^2.0.0",
-    "puppeteer": "^0.13.0",
-    "sass-loader": "^6.0.6",
-    "style-ext-html-webpack-plugin": "^3.4.5",
-    "webpack-plugin-critical": "^1.0.0"
-  },
-  "dependencies": {
-    "braintree-web": "^3.26.0",
-    "braintree-web-drop-in": "^1.9.2",
-    "firebase": "^4.6.2",
-    "preact": "^8.2.7",
-    "preact-compat": "^3.17.0",
-    "preact-i18n": "^1.1.2",
-    "preact-router": "^2.5.7",
-    "react": "^16.2.0",
-    "unistore": "^3.0.2"
-  }
+	"private": true,
+	"name": "OnlineStore",
+	"version": "0.0.0",
+	"license": "MIT",
+	"scripts": {
+		"start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+		"build":
+			"API_URL='https://us-central1-onlinestore-2e046.cloudfunctions.net/api/' DEBUG=false NODE_ENV=production preact build --no-prerender --template src/assets/template.html",
+		"serve": "preact build && preact serve",
+		"dev": "preact watch --template src/assets/template.html",
+		"lint": "eslint src",
+		"deploy":
+			"npm run build && node prerenderer.js && firebase deploy --only hosting"
+	},
+	"eslintConfig": {
+		"extends": "eslint-config-synacor"
+	},
+	"eslintIgnore": ["build/*"],
+	"devDependencies": {
+		"eslint": "^4.5.0",
+		"eslint-config-synacor": "^1.1.0",
+		"ga-lite": "^2.0.1",
+		"if-env": "^1.0.0",
+		"node-http-server": "^8.1.2",
+		"node-sass": "^4.7.2",
+		"preact-cli": "^2.0.0",
+		"puppeteer": "^0.13.0",
+		"sass-loader": "^6.0.6",
+		"style-ext-html-webpack-plugin": "^3.4.5",
+		"webpack-plugin-critical": "^1.0.0"
+	},
+	"dependencies": {
+		"braintree-web": "^3.26.0",
+		"braintree-web-drop-in": "^1.9.2",
+		"firebase": "^4.6.2",
+		"preact": "^8.2.7",
+		"preact-compat": "^3.17.0",
+		"preact-i18n": "^1.1.2",
+		"preact-router": "^2.5.7",
+		"react": "^16.2.0",
+		"unistore": "^3.0.2"
+	}
 }

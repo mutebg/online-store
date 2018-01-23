@@ -7,7 +7,6 @@ import Product from '../routes/product';
 import Basket from '../routes/basket';
 import Order from '../routes/order';
 import AdminOrders from 'async!../routes/admin/orders';
-import AdminViewOrder from 'async!../routes/admin/vieworder';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -30,7 +29,6 @@ export default class App extends Component {
 						<Product path="/product/:id" />
 						<Order path="/order/:id/:email" />
 						<AdminOrders path="/admin/orders" />
-						<AdminViewOrder path="/admin/order/:id" />
 					</Router>
 				</div>
 			</div>

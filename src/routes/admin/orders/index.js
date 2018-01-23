@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 
 import './style';
 import { formatProduct } from '../../../../functions/helpers';
-import reqAuth from 'async!../reqAuth';
+import reqAuth from '../reqAuth';
 import { extractCustomer } from '../../../utils/shiping';
 import { ORDER_STATUS } from '../../../../functions/consts';
 
