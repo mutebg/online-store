@@ -1,10 +1,9 @@
-@import "_mixins";
+@import '_mixins';
 
 html,
 body,
 div,
 span,
-iframe,
 h1,
 h2,
 h3,
@@ -12,265 +11,230 @@ h4,
 h5,
 h6,
 p,
-address,
-cite,
-code,
 em,
 img,
-q,
-small,
-sub,
-sup,
-b,
-i,
-ol,
-ul,
-li,
 fieldset,
 form,
 label,
-legend,
 table,
-caption,
-tbody,
-tfoot,
-thead,
 tr,
 th,
 td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
 footer,
 header,
-hgroup,
-menu,
 nav,
-section,
-summary,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-  font-weight: normal;
+section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	font-weight: normal;
 }
 
 body {
-  line-height: 1;
+	line-height: 1;
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
 footer,
 header,
-hgroup,
-menu,
 nav,
 section {
-  display: block;
+	display: block;
 }
 
 nav ul {
-  list-style: none;
+	list-style: none;
 }
 
 a {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 input,
 select {
-  vertical-align: middle;
+	vertical-align: middle;
 }
 
 button {
-  background: none;
-  border: none;
-  padding: 0;
+	background: none;
+	border: none;
+	padding: 0;
 }
 
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 html,
 body {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: #eaebef;
-  font-family: "Helvetica Neue", arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  color: #464653;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background: #eaebef;
+	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	color: #464653;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  --grid-columns: 3;
-  --primary: #e91e63;
-  --primary-light: #f06292;
-  --primary-dark: #da084e;
-  --text: #464653;
-  --text-light: #acacb3;
+	--grid-columns: 3;
+	--primary: #e91e63;
+	--primary-light: #f06292;
+	--primary-dark: #da084e;
+	--text: #464653;
+	--text-light: #acacb3;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #app {
-  height: 100%;
+	height: 100%;
 }
 
 .grid {
-  margin: 0 auto 0;
-  position: relative;
-  padding: 0 1em;
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+	margin: 0 auto 0;
+	position: relative;
+	padding: 0 1em;
+	width: 100%;
+	max-width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .wrapper {
-  padding: 76px 10px 0 10px;
-  min-height: 100%;
-  width: 100%;
-  @include respond-from("md") {
-    padding-left: 0;
-    padding-right: 0;
-  }
+	padding: 76px 10px 0 10px;
+	min-height: 100%;
+	width: 100%;
+	@include respond-from('md') {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 .grid__item {
 }
 
 .visuallyhidden {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+	border: 0;
+	-webkit-clip: rect(0 0 0 0);
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 .form-row {
-  margin-bottom: 1.25em;
+	margin-bottom: 1.25em;
 }
 
 .form-row__label {
-  display: block;
-  width: 100%;
-  font-size: 14px;
-  color: #000;
+	display: block;
+	width: 100%;
+	font-size: 14px;
+	color: #000;
 }
 
 .form-row__field {
-  border: 1px solid #bfbfbf;
-  height: 44px;
-  margin: 4px 0 0;
-  padding: 0 8px;
-  color: #000;
-  font-size: 16px;
-  width: 100%;
+	border: 1px solid #bfbfbf;
+	height: 44px;
+	margin: 4px 0 0;
+	padding: 0 8px;
+	color: #000;
+	font-size: 16px;
+	width: 100%;
 
-  // flex: auto;
-  // height: 3em;
-  // padding: 1em;
-  // font-size: 16px;
+	// flex: auto;
+	// height: 3em;
+	// padding: 1em;
+	// font-size: 16px;
 }
 
 .showIn {
-  animation-name: fade-in;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-duration: 0.5s;
-  transform: translateY(400px);
+	animation-name: fade-in;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	animation-duration: 0.5s;
+	transform: translateY(400px);
 }
 
 @keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(400px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	0% {
+		opacity: 0;
+		transform: translateY(400px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .btn {
-  background: var(--primary);
-  font-size: 24px;
-  color: #fff;
-  padding: 0.5em;
-  border-radius: 4px;
-  margin: 0 auto;
-  display: inline-block;
-  cursor: pointer;
+	background: var(--primary);
+	font-size: 24px;
+	color: #fff;
+	padding: 0.5em;
+	border-radius: 4px;
+	margin: 0 auto;
+	display: inline-block;
+	cursor: pointer;
 
-  &__icon {
-    background: rgba(0, 0, 0, 0.1);
-    float: left;
-    padding: 0.65em;
-    height: 56px;
-    color: #fff;
-    margin: -0.5em;
-  }
+	&__icon {
+		background: rgba(0, 0, 0, 0.1);
+		float: left;
+		padding: 0.65em;
+		height: 56px;
+		color: #fff;
+		margin: -0.5em;
+	}
 
-  &:hover {
-    background: var(--primary-dark);
-  }
+	&:hover {
+		background: var(--primary-dark);
+	}
 
-  &--full {
-    width: 100%;
-  }
+	&--full {
+		width: 100%;
+	}
 }
 
 .tile {
-  border-radius: 4px;
-  box-shadow: 0 2px 10px 0px #ccc;
-  background: #fff;
+	border-radius: 4px;
+	box-shadow: 0 2px 10px 0px #ccc;
+	background: #fff;
 }
 
 .hide-mobile {
-  @media (max-width: 600px) {
-    display: none;
-  }
+	@media (max-width: 600px) {
+		display: none;
+	}
 }

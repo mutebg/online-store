@@ -13,6 +13,7 @@ const Product = ({ image, price, name, id }) => (
 					srcset={buildImageUrl(image, '300', 'webp')}
 				/>
 				<img
+					async="on"
 					class="product__image"
 					src={buildImageUrl(image, '300', 'jpg')}
 					alt={name}
